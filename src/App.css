@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400;500&display=swap");
+
+:root {
+  /* --textColor: #36454f; */
+  --textColor: #212529;
+  --lightBackground: #faf9f6;
+  --btnBorder: #fa5252;
+  --btnBackground: #ff8787;
+}
+
+* {
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 0.05rem;
+  color: var(--textColor);
+}
+
+body {
+  background-color: var(--lightBackground);
+}
+
+.btn {
+  font-size: large;
+  border: 2px solid var(--btnBorder);
+  background-color: var(--btnBackground);
+  font-weight: 500;
+  border-radius: 0.75rem;
+  width: 12rem;
+  height: 3rem;
+}
+
+.btn:hover {
+  cursor: pointer;
+  background-color: var(--btnBorder);
+  transition: background 300ms;
+}
+
+.Navbtn {
+  border: none;
+  background: transparent;
+  font-size: large;
+}
+
+.Navbtn:hover {
+  font-weight: bold;
+  background-color: var(--btnBackground);
+  transform: skewX(-30deg);
+  transition: background 500ms ease-in, transform 500ms ease-in;
+}
+
+.Navbtn button:hover {
+  transform: skewX(25deg);
+}
+
+.footer {
+  position: absolute;
+  text-align: center;
+  bottom: 1rem;
+  left: 0px;
+  right: 0px;
+}
+
+.footer span {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-btns {
+  display: inline-flex;
+  gap: 0.3rem;
+  justify-content: flex-end;
+  align-self: center;
+  margin-right: 1rem;
+}
+
+.main-text {
+  text-align: center;
+  margin-top: 10rem;
+  font-size: large;
+}
+
+.main-text h2 {
+  margin-bottom: 4rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 7rem;
+  background-color: var(--btnBackground);
+  height: 3rem;
+  width: 17rem;
+  transform: skewX(-30deg);
+}
+
+.header h1 {
+  transform: skewX(25deg);
+}
+
+.logo {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 1rem;
+  width: 6rem;
+  height: 3rem;
+  background-color: var(--btnBackground);
+  transform: skewX(-30deg);
+}
+
+.logo h1 {
+  transform: skewX(25deg);
+}
