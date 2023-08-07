@@ -10,6 +10,9 @@ export default function NavBar() {
           <Logo />
         </div>
         <div className="nav-btns">
+          <Link to={"/"}>
+            <Button className="Navbtn">Home</Button>
+          </Link>
           <Link to={"/Account"}>
             <Button className="Navbtn">Log in</Button>
           </Link>

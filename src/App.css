@@ -149,10 +149,17 @@ body {
   transform: skewX(25deg);
 }
 
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .Navbtn {
   border: none;
   background: transparent;
   font-size: larger;
+  width: auto;
+  padding: 0.2rem;
 }
 
 .Navbtn:hover {
@@ -167,11 +174,8 @@ body {
 }
 
 .footer {
-  position: sticky;
   text-align: center;
-  bottom: 1rem;
-  left: 0px;
-  right: 0px;
+  margin-bottom: 1rem;
 }
 
 .footer span {
@@ -252,11 +256,83 @@ body {
   align-items: center;
   width: 6rem;
   height: 3rem;
-  margin-left: -18rem;
+  margin-left: -15.5rem;
   background-color: var(--btnBackground);
   transform: skewX(-30deg);
 }
 
 .logo h1 {
   transform: skewX(25deg);
+}
+
+.mt-5 {
+  margin-top: 5rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* ABOUT PAGE STYLES */
+
+.about {
+  width: 80%;
+  font-size: larger;
+}
+
+.about h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.about h3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--btnBackground);
+  width: 22rem;
+  height: 3rem;
+  transform: skewx(-30deg);
+}
+
+.about h3 span {
+  transform: skewX(30deg);
+}
+
+.about p {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.about li {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  list-style: none;
+}
+
+.about li h4 {
+  display: flex;
+  justify-content: flex-start;
+  padding: 0.5rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  width: fit-content;
+  margin-bottom: 1rem;
+  background-color: var(--btnBackground);
+  transform: skewX(-30deg);
+}
+
+.about li span {
+  transform: skewX(30deg);
+}
+
+.about h2 {
+  font-size: larger;
+  margin-bottom: 2rem;
+}
+
+.border-box {
+  border: 5px double var(--textColor);
+  padding: 0.75rem;
+  box-shadow: 12px 12px 10px 2px var(--textColor);
 }
