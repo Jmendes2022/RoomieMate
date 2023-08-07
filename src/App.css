@@ -12,10 +12,87 @@
   font-family: "Montserrat", sans-serif;
   letter-spacing: 0.05rem;
   color: var(--textColor);
+  margin: 0;
+  padding: 0px;
 }
 
 body {
   background-color: var(--lightBackground);
+}
+
+.aside-1 {
+  margin: 0.75rem;
+  border: double 10px var(--textColor);
+  padding: 5rem;
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1.5rem 1.5rem;
+  margin-bottom: 3rem;
+  margin-top: 3rem;
+}
+
+.aside-1 h2 {
+  grid-column: 1 / span 3;
+  align-self: flex-start;
+  font-size: 2rem;
+}
+
+.aside-2 {
+  display: grid;
+  grid-template-columns: repeat(3, 2fr);
+  grid-template-rows: repeat(3, 1fr);
+  margin-top: 5rem;
+}
+
+.aside-2 h4 {
+  grid-column: 3 / span 1;
+  grid-row: 1 / span 3;
+  font-size: 4rem;
+  flex-wrap: wrap;
+  background-color: var(--btnBackground);
+  padding: 1.75rem;
+  margin-right: 2.75rem;
+  border: 2px solid #212529;
+  filter: drop-shadow(0.5rem 0.5rem 0.5rem var(--textColor));
+}
+
+.aside-2 img {
+  border: 2px solid black;
+  filter: drop-shadow(0.5rem 0.5rem 0.5rem var(--textColor));
+  height: 25rem;
+}
+
+.aside-2-images {
+  display: grid;
+  grid-row: 1 / span 3;
+  grid-column: 1 / span 3;
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.aside-2-image-1 {
+  grid-column: 3;
+  grid-row: 1 / span 3;
+  align-self: flex-end;
+  margin-left: -3rem;
+  margin-bottom: 9rem;
+}
+
+.aside-2-image-2 {
+  grid-column: 3 / span 2;
+  grid-row: 1 / span 3;
+  justify-self: center;
+  z-index: -1;
+  margin-right: -5rem;
+}
+
+.aside-2-image-3 {
+  justify-self: center;
+  grid-row: 1 / span 3;
+  grid-column: 1 / span 3;
+  z-index: -1;
+  margin-left: -15rem;
 }
 
 .btn {
@@ -26,6 +103,8 @@ body {
   border-radius: 0.75rem;
   width: 12rem;
   height: 3rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .btn:hover {
@@ -34,10 +113,46 @@ body {
   transition: background 300ms;
 }
 
+.card-1 {
+  grid-column: 1 / span 1;
+}
+
+.card-2 {
+  grid-column: 2 / span 1;
+}
+
+.card-3 {
+  grid-column: 3 / span 1;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 1rem;
+  height: 6rem;
+  background-color: var(--btnBackground);
+  filter: drop-shadow(00.5rem 0.5rem 0.5rem var(--textColor));
+  transform: skewX(-25deg);
+}
+
+.card h4 {
+  margin-bottom: 0.5rem;
+}
+
+.card p:last-of-type {
+  margin-top: 0.5rem;
+}
+
+.card h4,
+.card p {
+  transform: skewX(25deg);
+}
+
 .Navbtn {
   border: none;
   background: transparent;
-  font-size: large;
+  font-size: larger;
 }
 
 .Navbtn:hover {
@@ -52,7 +167,7 @@ body {
 }
 
 .footer {
-  position: absolute;
+  position: sticky;
   text-align: center;
   bottom: 1rem;
   left: 0px;
@@ -66,26 +181,50 @@ body {
 
 .nav-container {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-around;
+  margin-top: 1rem;
 }
 
 .nav-btns {
-  display: inline-flex;
-  gap: 0.3rem;
-  justify-content: flex-end;
-  align-self: center;
-  margin-right: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  margin-right: 25rem;
 }
 
 .main-text {
   text-align: center;
-  margin-top: 10rem;
+  margin-left: auto;
+  margin-right: auto;
   font-size: large;
+  background-color: rgba(255, 255, 255, 0.692);
+  border: transparent;
+  border-radius: 0.75rem;
+  width: 50rem;
+  padding: 1rem;
+  margin-top: 4rem;
+}
+
+.main-text p {
+  margin: 0.75rem;
 }
 
 .main-text h2 {
   margin-bottom: 4rem;
+}
+
+.main-image {
+  background-image: url("./Images/wepik-export-20230806224041x2AU.png");
+  background-repeat: no-repeat;
+  height: 100vh;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3rem;
+  padding: 2rem;
+}
+
+.main-text2 {
+  display: grid;
 }
 
 .header {
@@ -95,7 +234,8 @@ body {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 7rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
   background-color: var(--btnBackground);
   height: 3rem;
   width: 17rem;
@@ -107,12 +247,12 @@ body {
 }
 
 .logo {
-  display: inline-flex;
+  display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 1rem;
   width: 6rem;
   height: 3rem;
+  margin-left: -18rem;
   background-color: var(--btnBackground);
   transform: skewX(-30deg);
 }
