@@ -13,7 +13,7 @@ export default function NavBar() {
           <Link to={"/"}>
             <Button className="Navbtn">Home</Button>
           </Link>
-          <Link to={"/Account"}>
+          <Link to={"/Login"}>
             <Button className="Navbtn">Log in</Button>
           </Link>
           <Link to={"/FindRoomates"}>

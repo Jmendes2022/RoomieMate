@@ -6,10 +6,14 @@
   --lightBackground: #faf9f6;
   --btnBorder: #fa5252;
   --btnBackground: #ff8787;
+  /* --cardBackground: rgba(255, 255, 255, 0.692); */
+  --cardBackground: rgba(255, 255, 255, 0.507);
+
+  --fontStyle: "Montserrat", sans-serif;
 }
 
 * {
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--fontStyle);
   letter-spacing: 0.05rem;
   color: var(--textColor);
   margin: 0;
@@ -77,6 +81,32 @@ body {
   align-self: flex-end;
   margin-left: -3rem;
   margin-bottom: 9rem;
+}
+
+.aside-2-image-placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25.25rem;
+  background-color: #2b2a2a77;
+  border: 2px solid var(--textColor);
+}
+
+.aside-2-image-1-placeholder {
+  width: 16.9169rem;
+  grid-column: 3;
+  grid-row: 1 / span 3;
+  align-self: flex-end;
+  margin-left: -9rem;
+  margin-bottom: 9rem;
+}
+
+.aside-2-image-1-placeholder {
+  width: 20.2531rem;
+}
+
+.aside-2-image-1-placeholder {
+  width: 37.7469rem;
 }
 
 .aside-2-image-2 {
@@ -202,7 +232,7 @@ body {
   margin-right: auto;
   font-size: large;
   background-color: rgba(255, 255, 255, 0.692);
-  border: transparent;
+  border: 2px solid var(--textColor);
   border-radius: 0.75rem;
   width: 50rem;
   padding: 1rem;
@@ -220,6 +250,8 @@ body {
 .main-image {
   background-image: url("./Images/wepik-export-20230806224041x2AU.png");
   background-repeat: no-repeat;
+  border-top: solid 2px var(--textColor);
+  border-bottom: solid 2px var(--textColor);
   height: 100vh;
   margin-left: auto;
   margin-right: auto;
@@ -335,4 +367,105 @@ body {
   border: 5px double var(--textColor);
   padding: 0.75rem;
   box-shadow: 12px 12px 10px 2px var(--textColor);
+}
+
+.key-features-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  column-gap: 5rem;
+  row-gap: 5rem;
+  margin-top: 4rem;
+}
+
+.kf-card {
+  padding: 1rem;
+  border: 5px double var(--textColor);
+  border-radius: 8px;
+  box-shadow: 10px 10px 10px var(--textColor);
+  text-align: center;
+  grid-column: span 3;
+}
+
+.kf-card h4 {
+  font-size: larger;
+  margin-bottom: 1rem;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+/* Login Page Styles */
+
+.image-background {
+  background-image: url("./Images/live-such-moments-as-these.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-top: 2px solid #212529;
+  margin-top: 2rem;
+  height: 75rem;
+  z-index: -1;
+}
+
+.forgot-pass,
+.forgot-pass p,
+.forgot-pass a,
+.forgot-pass button {
+  display: flex;
+  justify-content: space-evenly;
+  color: blue;
+  text-decoration: none;
+  width: 10rem;
+  border: transparent;
+  background: transparent;
+  cursor: pointer;
+  font-size: medium;
+}
+
+.forgot-pass a:hover,
+.forgot-pass button:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.login-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--cardBackground);
+  border-radius: 0.75rem;
+  border: 2px solid var(--textColor);
+  width: 30%;
+  margin-top: 15rem;
+  padding: 2rem;
+}
+
+.email,
+.password {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  font-size: larger;
+}
+
+.email input,
+.password input {
+  margin-top: 1rem;
+  height: 1rem;
+  padding: 0.5rem;
+  width: 20rem;
+  font-size: 1rem;
+}
+
+.password input {
+  font-size: 1.75rem;
+}
+
+.verification {
+  display: inline-flex;
+  justify-content: flex-end;
 }
