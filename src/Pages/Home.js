@@ -4,14 +4,15 @@ import NavBar from "../Components/NavBar";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import Hero from "../Components/Hero";
-import ClipLoader from "react-spinners/ClipLoader";
 import {LazyLoadImage} from "react-lazy-load-image-component";
 import pizzaImage from "../Images/full-shot-women-eating-delicious-pizza.jpg";
+import pizzaImageLQ from "../Images/Low_Quality_Images/full-shot-women-eating-delicious-pizza LQ.jpg";
 import coffeeDrinkers from "../Images/medium-shot-women-holding-cups.jpg";
+import coffeeDrinkersLQ from "../Images/Low_Quality_Images/medium-shot-women-holding-cups LQ.jpg";
 import friendsOnCouch from "../Images/side-view-roommates-with-devices-indoors.jpg";
+import friendsOnCouchLQ from "../Images/Low_Quality_Images/side-view-roommates-with-devices-indoors LQ.jpg";
 import {useEffect, useState} from "react";
 import Testimonial from "../Components/Testimonial";
-import ImageSkeleton from "../Components/ImageSkeleton";
 
 export default function Home() {
   useEffect(() => {
@@ -43,9 +44,9 @@ export default function Home() {
       <aside className="aside-2">
         <h4>Find Roommates quick and easy with our powerful matching algorithm!</h4>
         <div className="aside-2-images">
-          <LazyLoadImage src={pizzaImage} loading="lazy" className="aside-2-image-1" alt="Two Roommates enjoying delicious pizza together" />
-          <LazyLoadImage src={coffeeDrinkers} loading="lazy" className="aside-2-image-2" alt="Two elderly women drinking enjoying coffee" />
-          <LazyLoadImage src={friendsOnCouch} loading="lazy" className="aside-2-image-3" alt="Roommates relaxing together in living room" />
+          <img src={pizzaImageLQ} placeholderSrc={pizzaImageLQ} className="aside-2-image-1" alt="Two Roommates enjoying delicious pizza together" />
+          <img src={coffeeDrinkersLQ} placeholderSrc={coffeeDrinkersLQ} className="aside-2-image-2" alt="Two elderly women drinking enjoying coffee" />
+          <img src={friendsOnCouchLQ} placeholderSrc={friendsOnCouchLQ} className="aside-2-image-3" alt="Roommates relaxing together in living room" />
         </div>
       </aside>
       <aside className="aside-1">
