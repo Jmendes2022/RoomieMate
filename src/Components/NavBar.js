@@ -5,6 +5,11 @@ import Logo from "../Components/Logo";
 import "../App.css";
 
 export default function NavBar({user}) {
+  function handleLogOut() {
+    //logs out user;
+    return;
+  }
+
   return (
     <>
       <div className="nav-container">
@@ -15,9 +20,17 @@ export default function NavBar({user}) {
           <Link to={"/"}>
             <Button className="Navbtn">Home</Button>
           </Link>
-          <Link to={"/Login"}>
-            <Button className="Navbtn">Log in</Button>
-          </Link>
+
+          {user ? (
+            <Button className="Navbtn" onClick={handleLogOut}>
+              Log out
+            </Button>
+          ) : (
+            <Link to={"/Login"}>
+              <Button className="Navbtn">Log in</Button>
+            </Link>
+          )}
+
           <Link to={"/FindRoomates"}>
             <Button className="Navbtn">Find Roommates</Button>
           </Link>
@@ -33,6 +46,9 @@ export default function NavBar({user}) {
             <h3>
               Welcome,
               <span> {user}!</span>
+              <Link to={"/Account"}>
+                <span className="accountBtn">[Account]</span>
+              </Link>
             </h3>
           ) : (
             <h3>

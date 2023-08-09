@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import NavBar from "../Components/NavBar";
 import Button from "../Components/Button";
+import Footer from "../Components/Footer";
 
 const ContactUs = ({user}) => {
   const [firstName, setFirstName] = useState("");
@@ -69,6 +70,9 @@ const ContactUs = ({user}) => {
               </div>
             </form>
           </div>
+        </div>
+        <div className="mt-2">
+          <Footer />
         </div>
       </div>
     </>

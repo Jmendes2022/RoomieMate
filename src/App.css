@@ -23,6 +23,20 @@ body {
   background-color: var(--lightBackground);
 }
 
+.mt-2 {
+  margin-top: 2rem;
+}
+
+.accountBtn {
+  color: blue;
+  font-size: small;
+}
+
+.accountBtn:hover {
+  cursor: pointer;
+  color: var(--btnBorder);
+  transition: color 300ms;
+}
 .aside-1 {
   margin: 0.75rem;
   border: double 10px var(--textColor);
@@ -311,6 +325,10 @@ body {
   text-align: center;
 }
 
+.welcome-display a {
+  text-decoration: none;
+}
+
 /* ABOUT PAGE STYLES */
 
 .about {
@@ -572,4 +590,111 @@ body {
   grid-column: 1 / span 3;
   grid-row: 6 / span 1;
   margin-top: 1rem;
+}
+
+/* Find Roommates style  */
+
+.roommate-container {
+  background: radial-gradient(#eeaeca, #94bbe9);
+  height: 100vh;
+  padding: 2rem;
+  margin-top: 2rem;
+  border-top: 2px solid var(--textColor);
+  border-bottom: 2px solid var(--textColor);
+}
+
+.instructions {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(4, 15rem);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.how-it-works {
+  text-align: center;
+  grid-column: 2 / span 2;
+  grid-row: 1;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.accept {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  grid-column: 1 / span 2;
+  grid-row: 2 / span 2;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.accept-icon {
+  height: 3rem;
+}
+
+.decline {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  grid-column: 3 / span 2;
+  grid-row: 2 / span 2;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.roommate {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.roommate-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--cardBackground);
+  border: 2px solid var(--textColor);
+  border-radius: 0.75rem;
+  width: 21.875rem;
+}
+
+.roommate-avatar {
+  image-rendering: optimizeSpeed;
+  border-top-right-radius: 0.55rem;
+  border-top-left-radius: 0.55rem;
+  border-bottom: solid 2px var(--textColor);
+}
+
+.roommate-card h3 {
+  text-align: center;
+  margin: 1rem;
+}
+
+.roommate-footer {
+  background: transparent;
+}
+
+.attributes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(auto, 1fr);
+  padding: 0.75rem;
+  row-gap: 0.5rem;
+}
+
+.attributes span {
+  background-color: var(--btnBackground);
+  width: fit-content;
+  padding: 0.15rem;
+  padding-left: 0.25rem;
+  border: solid 1px var(--textColor);
+  transform: skewX(-30deg);
+}
+
+.attributes {
 }
