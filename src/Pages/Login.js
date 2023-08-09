@@ -3,13 +3,13 @@ import NavBar from "../Components/NavBar";
 import Button from "../Components/Button";
 import {Link} from "react-router-dom";
 
-const Login = () => {
+const Login = ({user, handleSetUser}) => {
   const [emailValue, setEmailValue] = useState("");
   const [passValue, setPassValue] = useState("");
 
   return (
     <div className="login-container">
-      <NavBar />
+      <NavBar user={user} />
       <div className="image-background">
         <form className="login-form center">
           <div className="email">

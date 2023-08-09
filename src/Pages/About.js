@@ -3,7 +3,7 @@ import Footer from "../Components/Footer";
 import Card from "../Components/Card";
 import {useEffect} from "react";
 
-export default function About() {
+export default function About({user}) {
   useEffect(() => {
     document.title = "About | Roomie Mate";
   }, []);
@@ -11,7 +11,7 @@ export default function About() {
   return (
     <>
       <div className="container">
-        <NavBar />
+        <NavBar user={user} />
         <div className="about center">
           <h1 className="mt-5 text-center">Welcome to RoomieMate!</h1>
           <h3 className="center">

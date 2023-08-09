@@ -4,31 +4,21 @@ import NavBar from "../Components/NavBar";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import Hero from "../Components/Hero";
-import {LazyLoadImage} from "react-lazy-load-image-component";
-import pizzaImage from "../Images/full-shot-women-eating-delicious-pizza.jpg";
 import pizzaImageLQ from "../Images/Low_Quality_Images/full-shot-women-eating-delicious-pizza LQ.jpg";
-import coffeeDrinkers from "../Images/medium-shot-women-holding-cups.jpg";
 import coffeeDrinkersLQ from "../Images/Low_Quality_Images/medium-shot-women-holding-cups LQ.jpg";
-import friendsOnCouch from "../Images/side-view-roommates-with-devices-indoors.jpg";
 import friendsOnCouchLQ from "../Images/Low_Quality_Images/side-view-roommates-with-devices-indoors LQ.jpg";
 import {useEffect, useState} from "react";
 import Testimonial from "../Components/Testimonial";
 
-export default function Home() {
+export default function Home({user}) {
   useEffect(() => {
     document.title = "Home | RoomieMate";
   }, []);
 
-  const [loadedImages, setLoadedImages] = useState([]);
-
-  function handleOnLoad(id) {
-    setLoadedImages((loadedImages) => setLoadedImages([...loadedImages, id]));
-  }
-
   return (
     <>
       <div className="container">
-        <NavBar />
+        <NavBar user={user} />
         <div className="main-image">
           <div className="main-text">
             <Header />
