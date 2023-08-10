@@ -8,10 +8,34 @@ import {FcCancel} from "react-icons/fc";
 
 const FindRoommates = ({user}) => {
   const [avatar, setAvatar] = useState(null);
+  const [style, setStyle] = useState("");
 
   useEffect(() => {
     setAvatar("https://i.pravatar.cc/350");
   }, []);
+
+  function handleApprove(e) {
+    setStyle("roommate-card-accept");
+    setTimeout(() => {
+      setStyle("");
+    }, "500");
+    GetNewAvatar();
+  }
+
+  function handleDelete(e) {
+    setStyle("roommate-card-delete");
+    setTimeout(() => {
+      setAvatar(null);
+      setStyle("");
+      GetNewAvatar();
+    }, "500");
+  }
+
+  async function GetNewAvatar() {
+    let num = Math.random(70);
+    Math.floor(num) < 1 ? num++ : Math.floor(num);
+    await setAvatar(`https://i.pravatar.cc/350?${num}`);
+  }
 
   return (
     <>
@@ -22,22 +46,19 @@ const FindRoommates = ({user}) => {
           <h2 className="how-it-works">How Does it work?</h2>
           <h2 className="accept">
             Click the
-            <span>
-              <FcCancel className="delete-icon" size={50} />
-            </span>
+            <span className="delete-icon">❌</span>
             button to decline
           </h2>
           <h2 className="decline">
-            <span>Click the</span>
-            <FcApproval className="accept-icon" size={50} />
-
-            <span>button to accept</span>
+            Click the
+            <span className="accept-icon">✅</span>
+            button to accept
           </h2>
         </div>
-        <div className="roommate">
+        <div>
           {avatar && (
-            <Card className="roommate-card">
-              <img src={avatar} className="roommate-avatar" />
+            <Card id="roommate" className={`roommate-card center ${style}`}>
+              <img src={avatar} placeholder={"🤷‍♀️"} className="roommate-avatar" />
               <h3>Jmendes2022</h3>
               <div className="attributes">
                 <span>Hiking</span>
@@ -45,6 +66,28 @@ const FindRoommates = ({user}) => {
                 <span>Programming</span>
                 <span>Gaming</span>
                 <span>Gaming</span>
+              </div>
+              <div className="information">
+                <span className="gender">
+                  <strong>Gender:</strong> Male
+                </span>
+                <span className="age">
+                  <strong>Age:</strong> 28
+                </span>
+                <span className="city">
+                  <strong>City:</strong> Boston
+                </span>
+                <span className="state">
+                  <strong>State:</strong> MA
+                </span>
+              </div>
+              <div className="card-buttons">
+                <span>
+                  <FcCancel onClick={handleDelete} className="delete-icon" size={50} />
+                </span>
+                <span>
+                  <FcApproval onClick={handleApprove} className="accept-icon" size={50} />
+                </span>
               </div>
             </Card>
           )}
