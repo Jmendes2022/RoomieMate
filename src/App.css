@@ -329,6 +329,10 @@ body {
   text-decoration: none;
 }
 
+.messages-icon {
+  cursor: pointer;
+}
+
 /* ABOUT PAGE STYLES */
 
 .about {
@@ -736,4 +740,9 @@ body {
 .roommate-card-active .roommate-avatar {
   opacity: 0;
   transition: all 600ms;
+}
+
+/* Messages Tab Styles */
+
+.messages-tab {
 }
