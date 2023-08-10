@@ -596,7 +596,6 @@ body {
 
 .roommate-container {
   background: radial-gradient(#eeaeca, #94bbe9);
-  height: 100vh;
   padding: 2rem;
   margin-top: 2rem;
   border-top: 2px solid var(--textColor);
@@ -668,6 +667,7 @@ body {
   border-top-right-radius: 0.55rem;
   border-top-left-radius: 0.55rem;
   border-bottom: solid 2px var(--textColor);
+  opacity: 1;
 }
 
 .roommate-card h3 {
@@ -696,5 +696,44 @@ body {
   transform: skewX(-30deg);
 }
 
-.attributes {
+.information {
+  display: grid;
+  justify-self: center;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  column-gap: 5rem;
+  row-gap: 0.75rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.card-buttons {
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
+}
+
+.card-buttons span:hover {
+  cursor: pointer;
+}
+
+.accept-icon:hover {
+  cursor: pointer;
+}
+
+.roommate-card-accept {
+  transform: translate(20rem, -5rem);
+  opacity: 0;
+  transition: all 600ms;
+}
+
+.roommate-card-delete {
+  transform: translate(-20rem, -5rem);
+  opacity: 0;
+  transition: all 600ms;
+}
+
+.roommate-card-active .roommate-avatar {
+  opacity: 0;
+  transition: all 600ms;
 }
