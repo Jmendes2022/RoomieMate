@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.63029dd2.css",
-    "main.js": "/static/js/main.73509007.js",
+    "main.css": "/static/css/main.fbf388b5.css",
+    "main.js": "/static/js/main.89535161.js",
     "static/media/wepik-export-20230806224041x2AU.png": "/static/media/wepik-export-20230806224041x2AU.6be5dba27d6d8807fd68.png",
     "static/media/live-such-moments-as-these LQ.jpg": "/static/media/live-such-moments-as-these LQ.935eb19f5d388f4db1f7.jpg",
     "static/media/side-view-roommates-with-devices-indoors LQ.jpg": "/static/media/side-view-roommates-with-devices-indoors LQ.00d066fd9c968a3c0517.jpg",
@@ -9,11 +9,11 @@
     "static/media/business-teamwork-join-hands-together-business-teamwork-concept LQ.jpg": "/static/media/business-teamwork-join-hands-together-business-teamwork-concept LQ.6261f54417cad452506f.jpg",
     "static/media/medium-shot-women-holding-cups LQ.jpg": "/static/media/medium-shot-women-holding-cups LQ.1af353b041e9d621bc38.jpg",
     "index.html": "/index.html",
-    "main.63029dd2.css.map": "/static/css/main.63029dd2.css.map",
-    "main.73509007.js.map": "/static/js/main.73509007.js.map"
+    "main.fbf388b5.css.map": "/static/css/main.fbf388b5.css.map",
+    "main.89535161.js.map": "/static/js/main.89535161.js.map"
   },
   "entrypoints": [
-    "static/css/main.63029dd2.css",
-    "static/js/main.73509007.js"
+    "static/css/main.fbf388b5.css",
+    "static/js/main.89535161.js"
   ]
 }
