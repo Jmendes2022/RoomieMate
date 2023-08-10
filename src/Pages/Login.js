@@ -1,15 +1,19 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import NavBar from "../Components/NavBar";
 import Button from "../Components/Button";
 import {Link} from "react-router-dom";
 
-const Login = ({user, handleSetUser}) => {
+const Login = ({user, onHandleSetUser}) => {
   const [emailValue, setEmailValue] = useState("");
   const [passValue, setPassValue] = useState("");
 
+  useEffect(() => {
+    window.document.title = "Login | RoomieMate";
+  });
+
   return (
     <div className="login-container">
-      <NavBar user={user} />
+      <NavBar user={user} onHandleSetUser={onHandleSetUser} />
       <div className="image-background">
         <form className="login-form center">
           <div className="email">

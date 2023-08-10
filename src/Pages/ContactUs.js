@@ -1,15 +1,19 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import NavBar from "../Components/NavBar";
 import Button from "../Components/Button";
 import Footer from "../Components/Footer";
 
-const ContactUs = ({user}) => {
+const ContactUs = ({user, onHandleSetUser, handleShowMessages}) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
   const [isSent, setIsSent] = useState(false);
+
+  useEffect(() => {
+    window.document.title = "Contact Us | RoomieMate";
+  });
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -24,7 +28,7 @@ const ContactUs = ({user}) => {
   return (
     <>
       <div className="container">
-        <NavBar user={user} />
+        <NavBar user={user} onHandleSetUser={onHandleSetUser} handleShowMessages={handleShowMessages} />
         <div className="contact-container">
           <div className="contact-header">
             <h1>Please feel free to contact us with the form below</h1>

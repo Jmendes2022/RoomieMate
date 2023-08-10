@@ -1,4 +1,4 @@
-import {useState, useEffect} from "react";
+import {useState, useEffect, useContext} from "react";
 import NavBar from "../Components/NavBar";
 import Header from "../Components/Header";
 import Card from "../Components/Card";
@@ -6,12 +6,13 @@ import Footer from "../Components/Footer";
 import {FcApproval} from "react-icons/fc";
 import {FcCancel} from "react-icons/fc";
 
-const FindRoommates = ({user}) => {
+const FindRoommates = ({user, onHandleSetUser, handleShowMessages}) => {
   const [avatar, setAvatar] = useState(null);
   const [style, setStyle] = useState("");
 
   useEffect(() => {
     setAvatar("https://i.pravatar.cc/350");
+    window.document.title = "Find Roommates | RoomieMate";
   }, []);
 
   function handleApprove(e) {
@@ -39,19 +40,23 @@ const FindRoommates = ({user}) => {
 
   return (
     <>
-      <NavBar user={user} />
+      <NavBar user={user} onHandleSetUser={onHandleSetUser} handleShowMessages={handleShowMessages} />
       <div className="roommate-container">
         <Header />
         <div className="instructions">
-          <h2 className="how-it-works">How Does it work?</h2>
+          <h2 className="how-it-works">Start Matching!</h2>
           <h2 className="accept">
             Click the
-            <span className="delete-icon">❌</span>
+            <span>
+              <FcCancel size={40} />
+            </span>
             button to decline
           </h2>
           <h2 className="decline">
             Click the
-            <span className="accept-icon">✅</span>
+            <span>
+              <FcApproval size={40} />
+            </span>
             button to accept
           </h2>
         </div>
