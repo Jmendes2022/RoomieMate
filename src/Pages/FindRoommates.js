@@ -1,41 +1,79 @@
-import {useState, useEffect, useContext} from "react";
+import {useState, useEffect} from "react";
+import axios from "axios";
 import NavBar from "../Components/NavBar";
 import Header from "../Components/Header";
 import Card from "../Components/Card";
 import Footer from "../Components/Footer";
 import {FcApproval} from "react-icons/fc";
 import {FcCancel} from "react-icons/fc";
+import {getAllByRole} from "@testing-library/react";
 
 const FindRoommates = ({user, onHandleSetUser, handleShowMessages}) => {
-  const [avatar, setAvatar] = useState(null);
   const [style, setStyle] = useState("");
+  const [users, setUsers] = useState([]);
+  const [currentRoommate, setCurrentRoommate] = useState(null);
 
   useEffect(() => {
-    setAvatar("https://i.pravatar.cc/350");
     window.document.title = "Find Roommates | RoomieMate";
+
+    const GetAiUsers = async () => {
+      try {
+        const response = await axios.get("https://localhost:7230/InitData");
+        const usersList = await response.data;
+        setUsers([usersList][0]);
+        console.log(users);
+      } catch (error) {
+        alert("failed to fetch users");
+        console.log("failed to fetch users");
+      }
+    };
+    GetAiUsers();
   }, []);
 
-  function handleApprove(e) {
+  useEffect(() => {
+    const SetRoommate = () => {
+      if (users && users.length > 0) {
+        setCurrentRoommate(users[0]);
+      }
+    };
+
+    SetRoommate();
+    console.log(currentRoommate);
+  }, [users]);
+
+  async function GetMoreUsers() {
+    const postResponse = await axios.post("https://localhost:7230/InitData/100");
+    console.log(postResponse + " post response");
+
+    const getResponse = await axios.get("https://localhost:7230/InitData");
+    const usersList = await getResponse.data;
+    setUsers([usersList][0]);
+  }
+
+  function GetNewUser(id) {
+    if (id === null) {
+      return;
+    }
+
+    const leftoverUsers = users.filter((u) => u.id != id);
+    setUsers(leftoverUsers);
+    setCurrentRoommate(users[0]);
+  }
+
+  function handleApprove(id) {
     setStyle("roommate-card-accept");
     setTimeout(() => {
+      GetNewUser(id);
       setStyle("");
-    }, "500");
-    GetNewAvatar();
+    }, "2000");
   }
 
-  function handleDelete(e) {
+  function handleDelete(id) {
     setStyle("roommate-card-delete");
     setTimeout(() => {
-      setAvatar(null);
+      GetNewUser(id);
       setStyle("");
-      GetNewAvatar();
-    }, "500");
-  }
-
-  async function GetNewAvatar() {
-    let num = Math.random(70);
-    Math.floor(num) < 1 ? num++ : Math.floor(num);
-    await setAvatar(`https://i.pravatar.cc/350?${num}`);
+    }, "2000");
   }
 
   return (
@@ -61,39 +99,43 @@ const FindRoommates = ({user, onHandleSetUser, handleShowMessages}) => {
           </h2>
         </div>
         <div>
-          {avatar && (
-            <Card id="roommate" className={`roommate-card center ${style}`}>
-              <img src={avatar} placeholder={"🤷‍♀️"} className="roommate-avatar" />
-              <h3>Jmendes2022</h3>
+          {currentRoommate ? (
+            <Card id={currentRoommate["id"]} className={`roommate-card center ${style}`}>
+              <img src={currentRoommate["userimageurl"]} placeholder={"🤷‍♀️"} alt="" className="roommate-avatar" />
+              <h3>{currentRoommate["username"]}</h3>
               <div className="attributes">
-                <span>Hiking</span>
-                <span>Archery</span>
-                <span>Programming</span>
-                <span>Gaming</span>
-                <span>Gaming</span>
+                {currentRoommate.activities.map((activity, index) => (
+                  <span className="attributes-span" key={index}>
+                    {activity}
+                  </span>
+                ))}
               </div>
               <div className="information">
                 <span className="gender">
-                  <strong>Gender:</strong> Male
+                  <strong>Gender:</strong> {currentRoommate["gender"]}
                 </span>
                 <span className="age">
-                  <strong>Age:</strong> 28
+                  <strong>Age:</strong> {currentRoommate["age"]}
                 </span>
                 <span className="city">
-                  <strong>City:</strong> Boston
+                  <strong>City:</strong> {currentRoommate["city"]}
                 </span>
                 <span className="state">
-                  <strong>State:</strong> MA
+                  <strong>State:</strong> {currentRoommate["state"]}
                 </span>
               </div>
               <div className="card-buttons">
                 <span>
-                  <FcCancel onClick={handleDelete} className="delete-icon" size={50} />
+                  <FcCancel onClick={() => handleDelete(currentRoommate["id"])} className="delete-icon" size={50} />
                 </span>
                 <span>
-                  <FcApproval onClick={handleApprove} className="accept-icon" size={50} />
+                  <FcApproval onClick={() => handleApprove(currentRoommate["id"])} className="accept-icon" size={50} />
                 </span>
               </div>
+            </Card>
+          ) : (
+            <Card>
+              <h2 className="center">Fetching Roommates...</h2>
             </Card>
           )}
         </div>

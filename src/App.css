@@ -664,13 +664,17 @@ body {
   border: 2px solid var(--textColor);
   border-radius: 0.75rem;
   width: 21.875rem;
+  overflow: visible;
+  padding: 1rem;
 }
 
 .roommate-avatar {
   image-rendering: optimizeSpeed;
-  border-top-right-radius: 0.55rem;
-  border-top-left-radius: 0.55rem;
-  border-bottom: solid 2px var(--textColor);
+  border-radius: 0.55rem;
+
+  width: 170px;
+  height: 170px;
+  border: solid 2px var(--textColor);
   opacity: 1;
 }
 
@@ -689,9 +693,13 @@ body {
   grid-template-rows: repeat(auto, 1fr);
   padding: 0.75rem;
   row-gap: 0.5rem;
+  display: flex;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  flex-wrap: wrap;
 }
 
-.attributes span {
+.attributes-span {
   background-color: var(--btnBackground);
   width: fit-content;
   padding: 0.15rem;
@@ -726,15 +734,15 @@ body {
 }
 
 .roommate-card-accept {
-  transform: translate(20rem, -5rem);
+  transform: translate(40rem, -9rem);
   opacity: 0;
-  transition: all 600ms;
+  transition: transform 3000ms ease-out, opacity 1500ms linear;
 }
 
 .roommate-card-delete {
-  transform: translate(-20rem, -5rem);
+  transform: translate(-40rem, -9rem);
   opacity: 0;
-  transition: all 600ms;
+  transition: transform 3000ms ease-out, opacity 1500ms linear;
 }
 
 .roommate-card-active .roommate-avatar {
@@ -743,6 +751,3 @@ body {
 }
 
 /* Messages Tab Styles */
-
-.messages-tab {
-}
