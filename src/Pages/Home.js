@@ -23,7 +23,7 @@ export default function Home({user, onHandleSetUser, handleShowMessages}) {
           <div className="main-text">
             <Header />
             <Hero />
-            <Link>
+            <Link to={"/CreateAccount"}>
               <Button className={"btn"}>
                 <span>Create Account</span>
               </Button>

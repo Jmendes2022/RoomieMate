@@ -333,7 +333,11 @@ body {
   cursor: pointer;
 }
 
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
 /* ABOUT PAGE STYLES */
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 .about {
   width: 80%;
@@ -421,8 +425,11 @@ body {
   text-decoration: underline;
   text-underline-offset: 6px;
 }
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
-/* Login Page Styles */
+/* Login Page Styles Below*/
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 .image-background {
   background-image: url("./Images/Low_Quality_Images/live-such-moments-as-these\ LQ.jpg");
@@ -498,7 +505,11 @@ body {
   justify-content: flex-end;
 }
 
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
 /* Contact Us Styles */
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 .contact-container {
   display: flex;
@@ -596,7 +607,15 @@ body {
   margin-top: 1rem;
 }
 
+.contact-submit h3 {
+  color: var(--lightBackground);
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
 /* Find Roommates style  */
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 .roommate-container {
   background: radial-gradient(#eeaeca, #94bbe9);
@@ -750,4 +769,178 @@ body {
   transition: all 600ms;
 }
 
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
 /* Messages Tab Styles */
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+/* Create Account Styles */
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+/* .create-account-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  flex-direction: column;
+  border: 3px solid black;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  background-image: url("./Images/Low_Quality_Images/business-teamwork-join-hands-together-business-teamwork-concept\ LQ.jpg");
+} */
+
+.create-account-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("./Images/Low_Quality_Images/business-teamwork-join-hands-together-business-teamwork-concept\ LQ.jpg");
+  background-size: cover;
+  background-position: center;
+  border-top: 2px solid var(--textColor);
+  border-bottom: 2px solid var(--textColor);
+  height: 100vh;
+  margin-top: 2rem;
+}
+
+.create-account-container form {
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(auto, 15rem);
+  background-color: #21252988;
+  border-radius: 0.75rem;
+  box-shadow: 15px 15px 10px 2px var(--textColor);
+  border: 3px solid black;
+  gap: 1.5rem;
+  margin-top: 3rem;
+  height: 65%;
+  padding: 1rem;
+}
+
+.create-account-container label,
+.create-account-container h3,
+.create-account-container p {
+  color: var(--lightBackground);
+}
+
+.create-account-container form label {
+  margin-right: 0.25rem;
+  margin-left: 0.25rem;
+}
+
+.create-account-container form input {
+  width: 12rem;
+  padding: 0.125rem;
+  padding-left: 0.25rem;
+}
+
+.create-account-btn {
+  grid-column: 1 / span 2;
+  grid-row: 5 / span 1;
+  justify-self: center;
+  align-self: flex-start;
+}
+
+.criteria-requirements {
+  color: red !important;
+  text-align: center;
+  padding-top: 0.25rem;
+}
+
+.username-input {
+  display: flex;
+  justify-content: center;
+}
+
+.password-input {
+  display: flex;
+  justify-content: center;
+  grid-column: 1 / span 1;
+  grid-row: 2 / span 1;
+}
+
+.age-input {
+  display: flex;
+  justify-content: center;
+  grid-column: 2 / span 1;
+  grid-row: 3 / span 1;
+}
+
+.interests-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  grid-column: 1 / span 1;
+  grid-row: 4 / span 1;
+}
+
+.interests-container-interests {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.interests-container-header {
+  margin-bottom: 0.75rem;
+}
+
+.add-interest-btn {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.add-interest-btn button {
+  border: 2px solid var(--btnBorder);
+  background-color: var(--btnBackground);
+  font-weight: 500;
+  border-radius: 0.75rem;
+  width: 8rem;
+  height: 2rem;
+  font-size: medium;
+  cursor: pointer;
+}
+
+.add-interest-btn button:hover {
+  cursor: pointer;
+  background-color: var(--btnBorder);
+  transition: background 300ms;
+}
+
+.max-interests {
+  color: red !important;
+}
+
+.interest {
+  background-color: var(--btnBackground);
+  transform: skewx(-30deg);
+  padding: 0.1rem;
+  height: 1.5rem;
+  padding: 0.25rem;
+  text-align: center;
+}
+
+.interest p {
+  transform: skewx(30deg);
+}
+
+.location-input {
+  grid-column: 2 / span 1;
+  grid-row: 4 / span 1;
+}
+
+.email-input {
+  justify-self: center;
+  align-self: center;
+}

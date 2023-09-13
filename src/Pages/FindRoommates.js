@@ -6,7 +6,6 @@ import Card from "../Components/Card";
 import Footer from "../Components/Footer";
 import {FcApproval} from "react-icons/fc";
 import {FcCancel} from "react-icons/fc";
-import {getAllByRole} from "@testing-library/react";
 
 const FindRoommates = ({user, onHandleSetUser, handleShowMessages}) => {
   const [style, setStyle] = useState("");

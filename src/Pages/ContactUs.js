@@ -69,7 +69,7 @@ const ContactUs = ({user, onHandleSetUser, handleShowMessages}) => {
                 </div>
               </div>
               <div className="contact-submit">
-                {isSent && <h3>You will hear from our team within 24 hours</h3>}
+                {isSent && <h3>Thank you! You will hear from our team within 24 hours</h3>}
                 <Button className="btn">Submit</Button>
               </div>
             </form>

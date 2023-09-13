@@ -1,12 +1,8 @@
-create account creation page
-
 document every 5 actions the user likes and dislikes when sorting roommates
 
-create account page (displaying the user account information and editing allowed)
+create account page (displaying the user account information and editing allowed) (adding images to upload??)
 
 when loading ai users in on findRoommates page, get users based on logged in user location
-
-setup a fake contact us page (just take in the information and empty the form, act like it sent)
 
 ensure the logout button is working
 
@@ -15,3 +11,13 @@ make a connected roommates page? (displays all the ai roommates that you previou
 Have the ai roommmate roll a percentage to connect or not connect?
 
 live ai messages setup? (chatgpt??)
+
+responsiveness for each device view
+
+notify users when creating an account if the username / email already exists under respective input field
+
+---
+
+Next task:
+
+Create log-in page for the users. verify with JWT tokens on API.

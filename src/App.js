@@ -8,6 +8,7 @@ import FindRoommates from "./Pages/FindRoommates";
 import Account from "./Pages/Account";
 import Messages from "./Components/Messages";
 import "./App.css";
+import CreateAccount from "./Pages/CreateAccount";
 
 export default function App() {
   const [user, setUser] = useState("Jordan");
@@ -33,6 +34,7 @@ export default function App() {
         <Route path="/ContactUs" element={<ContactUs user={user} onHandleSetUser={handleSetUser} handleShowMessages={handleShowMessages} />} />
         <Route path="/FindRoomates" element={<FindRoommates user={user} onHandleSetUser={handleSetUser} handleShowMessages={handleShowMessages} />} />
         <Route path="/Account" element={<Account user={user} onHandleSetUser={handleSetUser} handleShowMessages={handleShowMessages} />} />
+        <Route path="/CreateAccount" element={<CreateAccount />} />
       </Routes>
       {isMessagesVisible && <Messages />}
     </>
