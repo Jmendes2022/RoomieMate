@@ -173,7 +173,7 @@ export default function CreateAccount() {
                   <button type="button" onClick={AddInterest} disabled={interests.length >= 6}>
                     Add Interest
                   </button>
-                  {interests.length >= 6 ? <p className={interests.length >= 6 && "max-interests "}>Limit Reached!</p> : <p>{interests.length} of 6</p>}
+                  {interests.length >= 6 ? <p className={interests.length >= 6 && "warning"}>Limit Reached!</p> : <p>{interests.length} of 6</p>}
                 </div>
                 <div className="interests-container-interests">
                   {interests.length > 0 &&

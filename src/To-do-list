@@ -1,5 +1,3 @@
-document every 5 actions the user likes and dislikes when sorting roommates
-
 create account page (displaying the user account information and editing allowed) (adding images to upload??)
 
 when loading ai users in on findRoommates page, get users based on logged in user location
@@ -16,8 +14,8 @@ responsiveness for each device view
 
 notify users when creating an account if the username / email already exists under respective input field
 
----
+Handle Forgot Password & Forgot User information on login page
 
 Next task:
 
-Create log-in page for the users. verify with JWT tokens on API.
+document every 5 actions the user likes and dislikes when sorting roommates

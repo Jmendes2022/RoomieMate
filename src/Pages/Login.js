@@ -1,36 +1,65 @@
 import React, {useEffect, useState} from "react";
 import NavBar from "../Components/NavBar";
 import Button from "../Components/Button";
-import {Link} from "react-router-dom";
+import axios from "axios";
 
 const Login = ({user, onHandleSetUser}) => {
-  const [emailValue, setEmailValue] = useState("");
-  const [passValue, setPassValue] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   useEffect(() => {
     window.document.title = "Login | RoomieMate";
-  });
+  }, []);
+
+  function onSubmit(e) {
+    e.preventDefault();
+
+    const apiUrl = "https://localhost:7230/api/User/login";
+
+    const postData = {
+      username: username,
+      password: password,
+    };
+
+    axios
+      .post(apiUrl, postData)
+      .then((response) => {
+        console.log(response);
+        localStorage.setItem("Token", response.data["token"]);
+        onHandleSetUser(response.data["username"]);
+        window.location.href = "/";
+      })
+      .catch((error) => {
+        console.error(error.response["data"]);
+        setError(error.response["data"]);
+      });
+
+    setUsername("");
+    setPassword("");
+  }
 
   return (
     <div className="login-container">
       <NavBar user={user} onHandleSetUser={onHandleSetUser} />
       <div className="image-background">
-        <form className="login-form center">
+        <form className="login-form center" onSubmit={onSubmit}>
           <div className="email">
-            <label>Email Address</label>
+            <label>Username</label>
             <div>
-              <input type="email" required placeholder="Somebody123@gmail.com" value={emailValue} onChange={(e) => setEmailValue(e.target.value)}></input>
-              <span className="verification">{emailValue ? "✅" : "❌"}</span>
+              <input type="text" required value={username} onChange={(e) => setUsername(e.target.value)}></input>
             </div>
           </div>
           <div className="password">
             <label>Password</label>
             <div>
-              <input type="password" required value={passValue} onChange={(e) => setPassValue(e.target.value)}></input>
-              <span className="verification">{passValue ? "✅" : "❌"}</span>
+              <input type="password" required value={password} onChange={(e) => setPassword(e.target.value)}></input>
             </div>
           </div>
-          <Button className="btn">Submit</Button>
+          {error && <p className="warning ">{error}</p>}
+          <button type="submit" className="btn">
+            Sign In
+          </button>
           <div className="forgot-pass">
             <Button>
               <p>Forgot Password?</p>
