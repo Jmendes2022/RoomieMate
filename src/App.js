@@ -1,5 +1,5 @@
 import {Route, Routes} from "react-router-dom";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
 import Login from "./Pages/Login";
@@ -9,9 +9,10 @@ import Account from "./Pages/Account";
 import Messages from "./Components/Messages";
 import "./App.css";
 import CreateAccount from "./Pages/CreateAccount";
+import axios from "axios";
 
 export default function App() {
-  const [user, setUser] = useState("Jordan");
+  const [user, setUser] = useState("");
   const [isMessagesVisible, setIsMessagesVisible] = useState(false);
 
   function handleSetUser(user) {
