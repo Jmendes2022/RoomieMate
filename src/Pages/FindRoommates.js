@@ -11,23 +11,44 @@ const FindRoommates = ({user, onHandleSetUser, handleShowMessages}) => {
   const [style, setStyle] = useState("");
   const [users, setUsers] = useState([]);
   const [currentRoommate, setCurrentRoommate] = useState(null);
+  const [dislikedUsers, setDislikedUsers] = useState([]);
+  const [likedUsers, setLikedUsers] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     window.document.title = "Find Roommates | RoomieMate";
 
     const GetAiUsers = async () => {
+      const id = localStorage.getItem("Id");
+
       try {
-        const response = await axios.get("https://localhost:7230/InitData");
+        const response = await axios.get(`https://localhost:7230/InitData/${id}`);
         const usersList = await response.data;
         setUsers([usersList][0]);
         console.log(users);
       } catch (error) {
         alert("failed to fetch users");
+        setError(error);
         console.log("failed to fetch users");
       }
     };
+
     GetAiUsers();
   }, []);
+
+  //   const GetAiUsers = async () => {
+  //     try {
+  //       const response = await axios.get("https://localhost:7230/InitData");
+  //       const usersList = await response.data;
+  //       setUsers([usersList][0]);
+  //       console.log(users);
+  //     } catch (error) {
+  //       alert("failed to fetch users");
+  //       console.log("failed to fetch users");
+  //     }
+  //   };
+  //   GetAiUsers();
+  // }, []);
 
   useEffect(() => {
     const SetRoommate = () => {
@@ -60,6 +81,9 @@ const FindRoommates = ({user, onHandleSetUser, handleShowMessages}) => {
   }
 
   function handleApprove(id) {
+    setLikedUsers((likedUsers) => [...likedUsers, id]);
+    postUsers();
+    console.log(likedUsers);
     setStyle("roommate-card-accept");
     setTimeout(() => {
       GetNewUser(id);
@@ -68,11 +92,43 @@ const FindRoommates = ({user, onHandleSetUser, handleShowMessages}) => {
   }
 
   function handleDelete(id) {
+    setDislikedUsers((dislikedUsers) => [...dislikedUsers, id]);
+    postUsers();
+    console.log(dislikedUsers);
     setStyle("roommate-card-delete");
     setTimeout(() => {
       GetNewUser(id);
       setStyle("");
     }, "2000");
+  }
+
+  function postUsers() {
+    if (likedUsers.length + dislikedUsers.length > 5) {
+      const id = localStorage.getItem("Id");
+
+      if (id === null) {
+        return;
+      }
+
+      const apiUrl = "https://localhost:7230/api/User/SaveUsers";
+
+      const putData = {
+        id: id,
+        likedUsers: likedUsers,
+        dislikedUsers: dislikedUsers,
+      };
+
+      axios
+        .put(apiUrl, putData)
+        .then((response) => {
+          console.log(response);
+          setLikedUsers([]);
+          setDislikedUsers([]);
+        })
+        .catch((error) => {
+          console.error(error.response["data"]);
+        });
+    }
   }
 
   return (
@@ -133,9 +189,7 @@ const FindRoommates = ({user, onHandleSetUser, handleShowMessages}) => {
               </div>
             </Card>
           ) : (
-            <Card>
-              <h2 className="center">Fetching Roommates...</h2>
-            </Card>
+            <Card>{error ? <h2>Something unexpected happened...Try again later</h2> : <h2 className="center">Fetching Roommates...</h2>}</Card>
           )}
         </div>
       </div>

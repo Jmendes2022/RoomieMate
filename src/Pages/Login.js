@@ -2,11 +2,14 @@ import React, {useEffect, useState} from "react";
 import NavBar from "../Components/NavBar";
 import Button from "../Components/Button";
 import axios from "axios";
+import {Route, Routes, useNavigate} from "react-router-dom";
 
 const Login = ({user, onHandleSetUser}) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     window.document.title = "Login | RoomieMate";
@@ -27,8 +30,9 @@ const Login = ({user, onHandleSetUser}) => {
       .then((response) => {
         console.log(response);
         localStorage.setItem("Token", response.data["token"]);
+        localStorage.setItem("Id", response.data["id"]);
         onHandleSetUser(response.data["username"]);
-        window.location.href = "/";
+        navigate("/");
       })
       .catch((error) => {
         console.error(error.response["data"]);

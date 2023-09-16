@@ -1,4 +1,4 @@
-import {Route, Routes} from "react-router-dom";
+import {Route, Routes, useNavigate} from "react-router-dom";
 import {useEffect, useState} from "react";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
@@ -9,16 +9,17 @@ import Account from "./Pages/Account";
 import Messages from "./Components/Messages";
 import "./App.css";
 import CreateAccount from "./Pages/CreateAccount";
-import axios from "axios";
 
 export default function App() {
   const [user, setUser] = useState("");
   const [isMessagesVisible, setIsMessagesVisible] = useState(false);
 
+  const navigate = useNavigate();
+
   function handleSetUser(user) {
     setUser(user);
     if (!user) {
-      window.location.href = "/";
+      navigate("/");
     }
   }
 
