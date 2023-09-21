@@ -31,6 +31,7 @@ const Login = ({user, onHandleSetUser}) => {
         console.log(response);
         localStorage.setItem("Token", response.data["token"]);
         localStorage.setItem("Id", response.data["id"]);
+        localStorage.setItem("Username", response.data["username"]);
         onHandleSetUser(response.data["username"]);
         navigate("/");
       })
@@ -41,6 +42,11 @@ const Login = ({user, onHandleSetUser}) => {
 
     setUsername("");
     setPassword("");
+  }
+
+  function AutoFillInfo() {
+    setUsername("Jmendes20223");
+    setPassword("password");
   }
 
   return (
@@ -63,6 +69,9 @@ const Login = ({user, onHandleSetUser}) => {
           {error && <p className="warning ">{error}</p>}
           <button type="submit" className="btn">
             Sign In
+          </button>
+          <button className="btn" type="button" onClick={AutoFillInfo}>
+            Auto Fill (Testing)
           </button>
           <div className="forgot-pass">
             <Button>

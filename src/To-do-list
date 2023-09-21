@@ -1,19 +1,17 @@
-create account page (displaying the user account information and editing allowed) (adding images to upload??)
-
-when loading ai users in on findRoommates page, get users based on logged in user location
-
-ensure the logout button is working
-
-make a connected roommates page? (displays all the ai roommates that you previously connected with in the past)
-
-Have the ai roommmate roll a percentage to connect or not connect?
-
 live ai messages setup? (chatgpt??)
 
 responsiveness for each device view
 
-notify users when creating an account if the username / email already exists under respective input field
-
 Handle Forgot Password & Forgot User information on login page
 
+allow to filter the findRoommates by state
+
+make a connected roommates page? (displays all the ai roommates that you previously connected with in the past) -When clicking on a roommmate, it shows you all the information regarding that conncted roommate
+
+Delete auto log in button and function
+
 Next task:
+
+create account page (displaying the user account information and editing allowed) (adding images to upload??)
+
+(was working on styling up the account details form)

@@ -9,6 +9,7 @@ import Account from "./Pages/Account";
 import Messages from "./Components/Messages";
 import "./App.css";
 import CreateAccount from "./Pages/CreateAccount";
+import ConnectedRoommates from "./Pages/ConnectedRoommates";
 
 export default function App() {
   const [user, setUser] = useState("");
@@ -17,11 +18,17 @@ export default function App() {
   const navigate = useNavigate();
 
   function handleSetUser(user) {
-    setUser(user);
-    if (!user) {
+    if (user == null) {
       navigate("/");
+      setUser(null);
+    } else {
+      setUser(user);
     }
   }
+
+  useEffect(() => {
+    setUser(localStorage.getItem("Username"));
+  }, []);
 
   function handleShowMessages() {
     setIsMessagesVisible(!isMessagesVisible);
@@ -37,6 +44,7 @@ export default function App() {
         <Route path="/FindRoomates" element={<FindRoommates user={user} onHandleSetUser={handleSetUser} handleShowMessages={handleShowMessages} />} />
         <Route path="/Account" element={<Account user={user} onHandleSetUser={handleSetUser} handleShowMessages={handleShowMessages} />} />
         <Route path="/CreateAccount" element={<CreateAccount />} />
+        <Route path="/ConnectedRoommates" element={<ConnectedRoommates user={user} onHandleSetUser={handleSetUser} handleShowMessages={handleShowMessages} />} />
       </Routes>
       {isMessagesVisible && <Messages />}
     </>

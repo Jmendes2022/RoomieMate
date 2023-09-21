@@ -1,11 +1,22 @@
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import Button from "../Components/Button";
 import Logo from "../Components/Logo";
 import {PiChatsDuotone} from "react-icons/pi";
+import Avatar from "./Avatar";
 
 import "../App.css";
 
 export default function NavBar({user, onHandleSetUser, handleShowMessages}) {
+  const navigate = useNavigate();
+
+  function HandleSetUser() {
+    if (user != null) {
+      onHandleSetUser(null);
+      localStorage.clear();
+      navigate("/");
+    }
+  }
+
   return (
     <>
       <div className="nav-container">
@@ -25,26 +36,34 @@ export default function NavBar({user, onHandleSetUser, handleShowMessages}) {
           <Link to={"/About"}>
             <Button className="Navbtn">About</Button>
           </Link>
+          {user && (
+            <Link to={"/ConnectedRoommates"}>
+              <Button className="Navbtn">Connections</Button>
+            </Link>
+          )}
           <span className="messages-icon" onClick={handleShowMessages}>
             {user && <PiChatsDuotone size={30} />}
           </span>
         </div>
         <div className="welcome-display">
           {user ? (
-            <h3>
-              Welcome,
-              <span> {user}!</span>
-              <span>
-                <Link to={"/Account"}>
-                  <span className="accountBtn">[Account]</span>
-                </Link>
-                <Link>
-                  <span onClick={() => onHandleSetUser(null)} className="accountBtn">
-                    [Logout]
-                  </span>
-                </Link>
-              </span>
-            </h3>
+            <>
+              <Avatar />
+              <h3>
+                Welcome,
+                <span> {user}!</span>
+                <span>
+                  <Link to={"/Account"}>
+                    <span className="accountBtn">[Account]</span>
+                  </Link>
+                  <Link>
+                    <span onClick={HandleSetUser} className="accountBtn">
+                      [Logout]
+                    </span>
+                  </Link>
+                </span>
+              </h3>
+            </>
           ) : (
             <h3>
               Welcome, <span>Guest!</span>

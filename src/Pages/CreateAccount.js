@@ -15,6 +15,8 @@ export default function CreateAccount() {
   const [email, setEmail] = useState("");
   const [interestInput, setInterestInput] = useState("");
   const [interests, setInterests] = useState([]);
+  const [emailExists, setEmailExists] = useState(true);
+  const [userExists, setUserExists] = useState(false);
 
   function AddInterest() {
     if (interestInput == "") {
@@ -31,6 +33,8 @@ export default function CreateAccount() {
 
   function onSubmit(e) {
     e.preventDefault();
+    setEmailExists(false);
+    setUserExists(false);
 
     const apiUrl = "https://localhost:7230/api/User";
 
@@ -51,19 +55,28 @@ export default function CreateAccount() {
       .post(apiUrl, postData)
       .then((response) => {
         console.log(response);
+        setUsername("");
+        setPassword("");
+        setFirstName("");
+        setLastName("");
+        setAge(18);
+        setState("");
+        setCity("");
+        setEmail("");
+        setInterestInput("");
+        setInterests((interests) => []);
       })
-      .catch((error) => console.error(error));
+      .catch((error) => {
+        console.error(error);
 
-    setUsername("");
-    setPassword("");
-    setFirstName("");
-    setLastName("");
-    setAge(null);
-    setState("");
-    setCity("");
-    setEmail("");
-    setInterestInput("");
-    setInterests((interests) => []);
+        if (error.response[`Username ${username} already exists`]) {
+          setUserExists(true);
+        }
+
+        if (error.response[`Email ${email} already exists`]) {
+          setEmailExists(true);
+        }
+      });
   }
 
   return (
@@ -189,6 +202,7 @@ export default function CreateAccount() {
               </div>
             </div>
             <div className="create-account-btn">
+              {(userExists && <p className="center warning">Username already exists!</p>) || (emailExists && <p className="center warning">Email already exists!</p>)}
               <button type="submit" className={"btn"}>
                 <span>Create Account</span>
               </button>

@@ -3,7 +3,7 @@
 :root {
   /* --textColor: #36454f; */
   --textColor: #212529;
-  --lightBackground: #faf9f6;
+  --lightBackground: #f5f5f5;
   --btnBorder: #fa5252;
   --btnBackground: #ff8787;
   --cardBackground: rgba(255, 255, 255, 0.507);
@@ -25,6 +25,10 @@ body {
 
 .mt-2 {
   margin-top: 2rem;
+}
+
+.center {
+  text-align: center;
 }
 
 .accountBtn {
@@ -139,6 +143,12 @@ body {
   margin-left: -15rem;
 }
 
+.avatar-Image {
+  display: flex;
+  width: 2rem;
+  height: 2rem;
+}
+
 .btn {
   font-size: large;
   border: 2px solid var(--btnBorder);
@@ -199,18 +209,20 @@ body {
 }
 
 .Navbtn {
-  border: none;
-  background: transparent;
+  border: solid var(--btnBorder) 2px;
+  border-radius: 0.75rem;
+  background: var(--btnBackground);
   font-size: larger;
   width: auto;
   padding: 0.2rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
 }
 
 .Navbtn:hover {
-  font-weight: bold;
-  background-color: var(--btnBackground);
-  transform: skewX(-30deg);
-  transition: background 500ms ease-in, transform 500ms ease-in;
+  cursor: pointer;
+  background-color: var(--btnBorder);
+  transition: background 300ms;
 }
 
 .Navbtn button:hover {
@@ -238,7 +250,7 @@ body {
 
 .nav-btns {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.75rem;
 }
 
 .main-text {
@@ -317,6 +329,12 @@ body {
 
 .text-center {
   text-align: center;
+}
+
+.welcome-display {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
 }
 
 .welcome-display h3 {
@@ -781,21 +799,6 @@ body {
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
-/* .create-account-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 5rem;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-  flex-direction: column;
-  border: 3px solid black;
-  border-radius: 0.75rem;
-  padding: 1.5rem;
-  background-image: url("./Images/Low_Quality_Images/business-teamwork-join-hands-together-business-teamwork-concept\ LQ.jpg");
-} */
-
 .create-account-container {
   display: flex;
   flex-direction: column;
@@ -944,4 +947,108 @@ body {
 .email-input {
   justify-self: center;
   align-self: center;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+/* Account Styles */
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.account-page-container {
+  height: 100vh;
+  border-top: 2px solid var(--textColor);
+  border-bottom: 2px solid var(--textColor);
+}
+
+.account {
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(auto, 1fr);
+  border-radius: 0.75rem;
+  box-shadow: 15px 15px 10px 2px var(--textColor);
+  border: 3px solid black;
+  width: 50%;
+  height: 40%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  background-color: #ff8787bd;
+}
+
+.account-avatar {
+  display: flex;
+  flex-direction: column;
+  grid-column: 1 / span 1;
+  grid-row: 1 / span 4;
+  justify-content: space-evenly;
+  justify-items: center;
+  justify-self: stretch;
+  align-items: center;
+  align-self: stretch;
+  gap: 1rem;
+  border: 2px solid var(--textColor);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.upload-avatar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.upload-avatar input {
+  display: flex;
+  margin-top: 0.5rem;
+  padding-left: 8rem;
+}
+
+.account-firstname {
+  display: flex;
+  grid-column: 2 / span 1;
+  grid-row: 1 / span 1;
+}
+
+.account-city {
+  display: flex;
+  grid-column: 2 / span 1;
+  grid-row: 2 / span 1;
+}
+
+.account-interests-container {
+  display: grid;
+  flex-direction: column;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column: 2 / span 1;
+  grid-row: 4 / span 1;
+  justify-self: center;
+  align-items: center;
+}
+
+.account-interests-header {
+  display: flex;
+  grid-column: 2 / span 1;
+  grid-row: 3 / span 1;
+  justify-self: center;
+  align-items: center;
+}
+
+.account-page-header {
+  background-color: var(--btnBackground);
+  transform: skewx(-30deg);
+  padding: 0.1rem;
+  padding: 0.25rem;
+  text-align: center;
+  width: 20rem;
+}
+
+.account-interests {
+  display: flex;
 }

@@ -23,6 +23,7 @@ const ContactUs = ({user, onHandleSetUser, handleShowMessages}) => {
     setEmail("");
     setSubject("");
     setMessage("");
+    console.log("This was a fake request made for a contact page. Email services cost $$ hahaha");
   }
 
   return (
