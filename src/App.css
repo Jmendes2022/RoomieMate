@@ -31,6 +31,10 @@ body {
   text-align: center;
 }
 
+.hidden {
+  display: none;
+}
+
 .accountBtn {
   color: blue;
   font-size: small;
@@ -899,8 +903,9 @@ body {
 
 .add-interest-btn {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
+  width: 60%;
   margin-top: 0.5rem;
 }
 
@@ -931,8 +936,9 @@ body {
   transform: skewx(-30deg);
   padding: 0.1rem;
   height: 1.5rem;
-  padding: 0.25rem;
+  padding: 0.25rem 0.75rem 0.25rem 0.75rem;
   text-align: center;
+  width: max-content;
 }
 
 .interest p {
@@ -959,23 +965,26 @@ body {
   height: 100vh;
   border-top: 2px solid var(--textColor);
   border-bottom: 2px solid var(--textColor);
+  background: radial-gradient(#eeaeca, #94bbe9);
+  margin-bottom: 2rem;
 }
 
 .account {
   display: grid;
   align-items: center;
+  justify-items: center;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(auto, 1fr);
   border-radius: 0.75rem;
   box-shadow: 15px 15px 10px 2px var(--textColor);
   border: 3px solid black;
-  width: 50%;
-  height: 40%;
+  width: 60%;
+  height: max-content;
   margin-left: auto;
   margin-right: auto;
   padding-top: 3rem;
   padding-bottom: 3rem;
-  background-color: #ff8787bd;
+  background-color: var(--lightBackground);
 }
 
 .account-avatar {
@@ -990,10 +999,21 @@ body {
   align-self: stretch;
   gap: 1rem;
   border: 2px solid var(--textColor);
+  background: linear-gradient(130deg, var(--lightBackground), rgba(187, 115, 115, 0.308), rgba(182, 183, 252, 0.719), var(--lightBackground));
+  border-radius: 0.75rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
   margin-left: 1rem;
   margin-right: 1rem;
+  height: 16.0369rem;
+  width: 28.75rem;
+}
+
+.avatar-Image {
+  border: 2px solid black;
+  border-radius: 5rem;
+  padding: 1.3rem;
+  margin-bottom: 0.5rem;
 }
 
 .upload-avatar {
@@ -1009,6 +1029,19 @@ body {
   padding-left: 8rem;
 }
 
+.account-edit-btn {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.account-save-cancel-div {
+  display: flex;
+  justify-content: space-around;
+}
+
 .account-firstname {
   display: flex;
   grid-column: 2 / span 1;
@@ -1019,6 +1052,12 @@ body {
   display: flex;
   grid-column: 2 / span 1;
   grid-row: 2 / span 1;
+  gap: 0.75rem;
+}
+
+.account-state {
+  display: flex;
+  gap: 0.75rem;
 }
 
 .account-interests-container {
@@ -1026,15 +1065,17 @@ body {
   flex-direction: column;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  grid-column: 2 / span 1;
+  grid-column: 2 / span 2;
   grid-row: 4 / span 1;
   justify-self: center;
   align-items: center;
+  gap: 0.75rem;
+  justify-items: center;
 }
 
 .account-interests-header {
   display: flex;
-  grid-column: 2 / span 1;
+  grid-column: 2 / span 2;
   grid-row: 3 / span 1;
   justify-self: center;
   align-items: center;
@@ -1051,4 +1092,39 @@ body {
 
 .account-interests {
   display: flex;
+  background-color: var(--btnBackground);
+  transform: skewx(-30deg);
+  padding: 0.1rem;
+  height: 1.5rem;
+  padding: 0.25rem;
+  text-align: center;
+}
+
+.account-interests-container-edit {
+  display: grid;
+  flex-direction: row;
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(2, auto);
+  grid-column-start: 1 / span 2;
+  grid-row-start: 4;
+  justify-self: center;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.interest-input {
+  width: max-content;
+  margin-left: auto;
+  margin-right: auto;
+  grid-column: 3;
+  grid-row: 4;
+}
+
+.add-interest-btn-edit {
+  display: flex;
+  flex-direction: column;
+  grid-row: 5 / span 1;
+  grid-column: 3 / span 1;
+  width: max-content;
+  gap: 1rem;
 }
