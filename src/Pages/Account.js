@@ -177,10 +177,12 @@ const Account = ({user, onHandleSetUser, handleShowMessages}) => {
                   ))}
               </div>
             </div>
-            <button className="btn account-edit-btn">Save</button>
-            <button className="btn account-edit-btn" type="button" onClick={handleEditButton}>
-              Cancel
-            </button>
+            <div className="account-submit-btn-container">
+              <button className="btn account-edit-btn">Save</button>
+              <button className="btn account-edit-btn" type="button" onClick={handleEditButton}>
+                Cancel
+              </button>
+            </div>
           </form>
         </div>
       ) : (
@@ -208,7 +210,7 @@ const Account = ({user, onHandleSetUser, handleShowMessages}) => {
               ))}
             </div>
           </div>
-          <div>
+          <div className="account-submit-btn-container">
             <button className="btn account-edit-btn" onClick={handleEditButton}>
               Edit
             </button>

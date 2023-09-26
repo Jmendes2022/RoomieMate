@@ -1031,15 +1031,8 @@ body {
 
 .account-edit-btn {
   display: flex;
-  margin-left: auto;
-  margin-right: auto;
   justify-content: center;
   align-items: center;
-}
-
-.account-save-cancel-div {
-  display: flex;
-  justify-content: space-around;
 }
 
 .account-firstname {
@@ -1127,4 +1120,10 @@ body {
   grid-column: 3 / span 1;
   width: max-content;
   gap: 1rem;
+}
+
+.account-submit-btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
 }
