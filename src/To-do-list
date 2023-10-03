@@ -14,4 +14,4 @@ Next task:
 
 create account page (displaying the user account information and editing allowed) (adding images to upload??)
 
-(was working on styling up the account details form)
+-Ensure that update Account works (Image works but City, State, and interests dont change)

@@ -48,7 +48,7 @@ export default function NavBar({user, onHandleSetUser, handleShowMessages}) {
         <div className="welcome-display">
           {user ? (
             <>
-              <Avatar />
+              <Avatar className={"avatar-Image"} />
               <h3>
                 Welcome,
                 <span> {user}!</span>

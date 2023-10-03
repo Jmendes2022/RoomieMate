@@ -147,12 +147,6 @@ body {
   margin-left: -15rem;
 }
 
-.avatar-Image {
-  display: flex;
-  width: 2rem;
-  height: 2rem;
-}
-
 .btn {
   font-size: large;
   border: 2px solid var(--btnBorder);
@@ -1012,8 +1006,17 @@ body {
 .avatar-Image {
   border: 2px solid black;
   border-radius: 5rem;
-  padding: 1.3rem;
   margin-bottom: 0.5rem;
+  width: 5rem;
+  height: 5rem;
+}
+
+.account-avatar-Image {
+  border: 2px solid black;
+  border-radius: 5rem;
+  margin-bottom: 0.5rem;
+  width: 10rem;
+  height: 10rem;
 }
 
 .upload-avatar {

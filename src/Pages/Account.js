@@ -15,6 +15,10 @@ const Account = ({user, onHandleSetUser, handleShowMessages}) => {
   const [interestInput, setInterestInput] = useState("");
   const [interests, setInterests] = useState([]);
 
+  const [editState, setEditState] = useState(state);
+  const [editCity, setEditCity] = useState(city);
+  const [avatarUpload, setAvatarUpload] = useState(null);
+
   const [isEditing, setIsEditing] = useState(false);
 
   const navigate = useNavigate();
@@ -47,12 +51,12 @@ const Account = ({user, onHandleSetUser, handleShowMessages}) => {
         const response = await axios.get(`https://localhost:7230/api/User/${id}`);
         const user = await response.data;
 
-        setUsername(user["username"]);
-        setFirstName(user["firstname"]);
-        setLastName(user["lastname"]);
-        setState(user["state"]);
-        setCity(user["city"]);
-        setInterests(user["interests"]);
+        setUsername(user.username);
+        setFirstName(user.firstname);
+        setLastName(user.lastname);
+        setState(user.state);
+        setCity(user.city);
+        setInterests(user.interests);
 
         console.log(user);
       } catch (error) {
@@ -69,16 +73,46 @@ const Account = ({user, onHandleSetUser, handleShowMessages}) => {
   }
 
   function HandleDeleteInterest(interest) {
-    const newInterests = interests.filter((i) => i != interest);
+    const newInterests = interests.filter((i) => i !== interest);
     setInterests(newInterests);
   }
 
   function AddInterest() {
-    if (interestInput == "") {
+    if (interestInput === "") {
       return;
     }
     setInterests((interests) => [interestInput, ...interests]);
     setInterestInput("");
+  }
+
+  async function onSubmitAccountInformation(e) {
+    e.preventDefault();
+    const id = localStorage.getItem("Id");
+    const apiUrl = `https://localhost:7230/api/User/${id}`;
+
+    const postData = {
+      state: state,
+      city: city,
+      interests: interests,
+      avatar: avatarUpload,
+    };
+
+    console.log(postData);
+
+    await axios
+      .put(apiUrl, postData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      .then((response) => {
+        alert(response);
+        console.log(response);
+      })
+      .catch((error) => {
+        console.error(error.data);
+        alert(error.data);
+      });
   }
 
   return (
@@ -86,22 +120,22 @@ const Account = ({user, onHandleSetUser, handleShowMessages}) => {
       <NavBar user={user} onHandleSetUser={onHandleSetUser} handleShowMessages={handleShowMessages} />
       {isEditing ? (
         <div className="account-page-container">
-          <form>
+          <form onSubmit={onSubmitAccountInformation}>
             <h1 className="center mt-5 account-page-header">Account Details</h1>
             <div className="account mt-5">
               <div className="account-avatar">
-                <Avatar />
+                <Avatar className={"account-avatar-Image"} />
                 <h4>{username}</h4>
                 <div className="upload-avatar">
-                  <label for="avatar-image">Upload Image: </label>
-                  <input type="file" name="image" />
+                  <label for="avatar">Upload Image: </label>
+                  <input type="file" name="avatar" accept="image/*" onChange={(e) => setAvatarUpload(e.target.files[0])} />
                 </div>
               </div>
               <p className="account-firstname">First Name: {firstName}</p>
               <p className="account-lastname">Last Name: {lastName}</p>
               <p className="account-state">
                 State:
-                <select required value={state} onChange={(e) => setState(e.target.value)}>
+                <select required value={editState} onChange={(e) => setEditState(e.target.value)}>
                   <option value="AL">AL</option>
                   <option value="AK">AK</option>
                   <option value="AZ">AZ</option>
@@ -155,7 +189,7 @@ const Account = ({user, onHandleSetUser, handleShowMessages}) => {
                 </select>
               </p>
               <p className="account-city">
-                City: <input value={city} onChange={(e) => setCity(e.target.value)} />
+                City: <input value={editCity} onChange={(e) => setEditCity(e.target.value)} />
               </p>
               <h3 className="account-interests-header">Interests</h3>
               <input className="interest-input" type="text" value={interestInput} onChange={(e) => setInterestInput(e.target.value)} />
@@ -190,7 +224,7 @@ const Account = ({user, onHandleSetUser, handleShowMessages}) => {
           <h1 className="center mt-5 account-page-header">Account Details</h1>
           <div className="account mt-5">
             <div className="account-avatar">
-              <Avatar />
+              <Avatar className={"account-avatar-Image"} />
               <h4>{username}</h4>
               <div className={isEditing ? "upload-avatar" : "hidden"}>
                 <label for="avatar-image">Upload Image: </label>

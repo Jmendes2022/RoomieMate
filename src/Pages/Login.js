@@ -28,11 +28,12 @@ const Login = ({user, onHandleSetUser}) => {
     axios
       .post(apiUrl, postData)
       .then((response) => {
-        console.log(response);
-        localStorage.setItem("Token", response.data["token"]);
-        localStorage.setItem("Id", response.data["id"]);
-        localStorage.setItem("Username", response.data["username"]);
-        onHandleSetUser(response.data["username"]);
+        console.log(response.data);
+        localStorage.setItem("Token", response.data.token);
+        localStorage.setItem("Id", response.data.id);
+        localStorage.setItem("Username", response.data.username);
+        localStorage.setItem("AvatarUrl", response.data.avatarUrl);
+        onHandleSetUser(response.data.username);
         navigate("/");
       })
       .catch((error) => {

@@ -155,9 +155,9 @@ const FindRoommates = ({user, onHandleSetUser, handleShowMessages}) => {
         </div>
         <div>
           {currentRoommate ? (
-            <Card id={currentRoommate["id"]} className={`roommate-card center ${style}`}>
-              <img src={currentRoommate["userimageurl"]} placeholder={"🤷‍♀️"} alt="" className="roommate-avatar" />
-              <h3>{currentRoommate["username"]}</h3>
+            <Card id={currentRoommate.id} className={`roommate-card center ${style}`}>
+              <img src={currentRoommate.userimageurl} placeholder={"🤷‍♀️"} alt="" className="roommate-avatar" />
+              <h3>{currentRoommate.username}</h3>
               <div className="attributes">
                 {currentRoommate.activities.map((activity, index) => (
                   <span className="attributes-span" key={index}>
@@ -167,24 +167,24 @@ const FindRoommates = ({user, onHandleSetUser, handleShowMessages}) => {
               </div>
               <div className="information">
                 <span className="gender">
-                  <strong>Gender:</strong> {currentRoommate["gender"]}
+                  <strong>Gender:</strong> {currentRoommate.gender}
                 </span>
                 <span className="age">
-                  <strong>Age:</strong> {currentRoommate["age"]}
+                  <strong>Age:</strong> {currentRoommate.age}
                 </span>
                 <span className="city">
-                  <strong>City:</strong> {currentRoommate["city"]}
+                  <strong>City:</strong> {currentRoommate.city}
                 </span>
                 <span className="state">
-                  <strong>State:</strong> {currentRoommate["state"]}
+                  <strong>State:</strong> {currentRoommate.state}
                 </span>
               </div>
               <div className="card-buttons">
                 <span>
-                  <FcCancel onClick={() => handleDelete(currentRoommate["id"])} className="delete-icon" size={50} />
+                  <FcCancel onClick={() => handleDelete(currentRoommate.id)} className="delete-icon" size={50} />
                 </span>
                 <span>
-                  <FcApproval onClick={() => handleApprove(currentRoommate["id"])} className="accept-icon" size={50} />
+                  <FcApproval onClick={() => handleApprove(currentRoommate.id)} className="accept-icon" size={50} />
                 </span>
               </div>
             </Card>

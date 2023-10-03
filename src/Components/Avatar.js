@@ -1,7 +1,7 @@
 import AvatarPlaceholder from "../Images/AvatarPlaceholder.png";
 import React, {useEffect, useState} from "react";
 
-const Avatar = () => {
+const Avatar = ({className}) => {
   const [userUrl, setUserUrl] = useState(null);
 
   useEffect(() => {
@@ -16,7 +16,7 @@ const Avatar = () => {
     GetUrl();
   }, []);
 
-  return <div>{userUrl != null ? <img className="avatar-Image" src={userUrl} /> : <img className="avatar-Image" src={AvatarPlaceholder} />}</div>;
+  return <div>{userUrl != null ? <img className={className} src={userUrl} /> : <img className={className} src={AvatarPlaceholder} />}</div>;
 };
 
 export default Avatar;
