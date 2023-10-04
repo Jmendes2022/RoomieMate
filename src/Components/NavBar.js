@@ -6,7 +6,7 @@ import Avatar from "./Avatar";
 
 import "../App.css";
 
-export default function NavBar({user, onHandleSetUser, handleShowMessages}) {
+export default function NavBar({user, onHandleSetUser, handleShowMessages, onHandleAvatar, avatar}) {
   const navigate = useNavigate();
 
   function HandleSetUser() {
@@ -48,7 +48,7 @@ export default function NavBar({user, onHandleSetUser, handleShowMessages}) {
         <div className="welcome-display">
           {user ? (
             <>
-              <Avatar className={"avatar-Image"} />
+              <Avatar className={"avatar-Image"} avatarUrl={avatar} />
               <h3>
                 Welcome,
                 <span> {user}!</span>

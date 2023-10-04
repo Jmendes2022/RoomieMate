@@ -1,22 +1,14 @@
 import AvatarPlaceholder from "../Images/AvatarPlaceholder.png";
 import React, {useEffect, useState} from "react";
 
-const Avatar = ({className}) => {
-  const [userUrl, setUserUrl] = useState(null);
+const Avatar = ({className, avatarUrl}) => {
+  // const [userUrl, setUserUrl] = useState("");
 
-  useEffect(() => {
-    function GetUrl() {
-      const avatarUrl = localStorage.getItem("AvatarUrl");
+  // useEffect(() => {
+  //   setUserUrl(avatarUrl);
+  // }, []);
 
-      if (avatarUrl) {
-        setUserUrl(avatarUrl);
-      }
-    }
-
-    GetUrl();
-  }, []);
-
-  return <div>{userUrl != null ? <img className={className} src={userUrl} /> : <img className={className} src={AvatarPlaceholder} />}</div>;
+  return <div>{avatarUrl != null ? <img className={className} src={avatarUrl} /> : <img className={className} src={AvatarPlaceholder} />}</div>;
 };
 
 export default Avatar;

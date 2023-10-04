@@ -7,7 +7,7 @@ import Footer from "../Components/Footer";
 import {FcApproval} from "react-icons/fc";
 import {FcCancel} from "react-icons/fc";
 
-const FindRoommates = ({user, onHandleSetUser, handleShowMessages}) => {
+const FindRoommates = ({user, onHandleSetUser, handleShowMessages, onHandleAvatar, avatar}) => {
   const [style, setStyle] = useState("");
   const [users, setUsers] = useState([]);
   const [currentRoommate, setCurrentRoommate] = useState(null);
@@ -35,20 +35,6 @@ const FindRoommates = ({user, onHandleSetUser, handleShowMessages}) => {
 
     GetAiUsers();
   }, []);
-
-  //   const GetAiUsers = async () => {
-  //     try {
-  //       const response = await axios.get("https://localhost:7230/InitData");
-  //       const usersList = await response.data;
-  //       setUsers([usersList][0]);
-  //       console.log(users);
-  //     } catch (error) {
-  //       alert("failed to fetch users");
-  //       console.log("failed to fetch users");
-  //     }
-  //   };
-  //   GetAiUsers();
-  // }, []);
 
   useEffect(() => {
     const SetRoommate = () => {
@@ -133,7 +119,7 @@ const FindRoommates = ({user, onHandleSetUser, handleShowMessages}) => {
 
   return (
     <>
-      <NavBar user={user} onHandleSetUser={onHandleSetUser} handleShowMessages={handleShowMessages} />
+      <NavBar user={user} onHandleSetUser={onHandleSetUser} handleShowMessages={handleShowMessages} onHandleAvatar={onHandleAvatar} avatar={avatar} />
       <div className="roommate-container">
         <Header />
         <div className="instructions">

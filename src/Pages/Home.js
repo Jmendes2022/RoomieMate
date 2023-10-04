@@ -10,7 +10,7 @@ import friendsOnCouchLQ from "../Images/Low_Quality_Images/side-view-roommates-w
 import {useEffect, useState} from "react";
 import Testimonial from "../Components/Testimonial";
 
-export default function Home({user, onHandleSetUser, handleShowMessages}) {
+export default function Home({user, onHandleSetUser, handleShowMessages, onHandleAvatar, avatar}) {
   useEffect(() => {
     document.title = "Home | RoomieMate";
   }, []);
@@ -18,7 +18,7 @@ export default function Home({user, onHandleSetUser, handleShowMessages}) {
   return (
     <>
       <div className="container">
-        <NavBar user={user} onHandleSetUser={onHandleSetUser} handleShowMessages={handleShowMessages} />
+        <NavBar user={user} onHandleSetUser={onHandleSetUser} handleShowMessages={handleShowMessages} onHandleAvatar={onHandleAvatar} avatar={avatar} />
         <div className="main-image">
           <div className="main-text">
             <Header />

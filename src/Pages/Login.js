@@ -4,7 +4,7 @@ import Button from "../Components/Button";
 import axios from "axios";
 import {Route, Routes, useNavigate} from "react-router-dom";
 
-const Login = ({user, onHandleSetUser}) => {
+const Login = ({user, onHandleSetUser, onHandleAvatar}) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -34,6 +34,7 @@ const Login = ({user, onHandleSetUser}) => {
         localStorage.setItem("Username", response.data.username);
         localStorage.setItem("AvatarUrl", response.data.avatarUrl);
         onHandleSetUser(response.data.username);
+        onHandleAvatar(response.data.userimageurl);
         navigate("/");
       })
       .catch((error) => {
@@ -52,7 +53,7 @@ const Login = ({user, onHandleSetUser}) => {
 
   return (
     <div className="login-container">
-      <NavBar user={user} onHandleSetUser={onHandleSetUser} />
+      <NavBar user={user} onHandleSetUser={onHandleSetUser} onHandleAvatar={onHandleAvatar} />
       <div className="image-background">
         <form className="login-form center" onSubmit={onSubmit}>
           <div className="email">

@@ -14,7 +14,7 @@ import ConnectedRoommates from "./Pages/ConnectedRoommates";
 export default function App() {
   const [user, setUser] = useState("");
   const [isMessagesVisible, setIsMessagesVisible] = useState(false);
-
+  const [avatar, setAvatar] = useState(null);
   const navigate = useNavigate();
 
   function handleSetUser(user) {
@@ -28,23 +28,28 @@ export default function App() {
 
   useEffect(() => {
     setUser(localStorage.getItem("Username"));
+    setAvatar(localStorage.getItem("AvatarUrl"));
   }, []);
 
   function handleShowMessages() {
     setIsMessagesVisible(!isMessagesVisible);
   }
 
+  function handleSetAvatar() {
+    setAvatar(localStorage.getItem("AvatarUrl"));
+  }
+
   return (
     <>
       <Routes>
-        <Route path="/" element={<Home user={user} onHandleSetUser={handleSetUser} handleShowMessages={handleShowMessages} />} />
-        <Route path="/About" element={<About user={user} onHandleSetUser={handleSetUser} handleShowMessages={handleShowMessages} />} />
-        <Route path="/Login" element={<Login user={user} onHandleSetUser={handleSetUser} handleShowMessages={handleShowMessages} />} />
-        <Route path="/ContactUs" element={<ContactUs user={user} onHandleSetUser={handleSetUser} handleShowMessages={handleShowMessages} />} />
-        <Route path="/FindRoomates" element={<FindRoommates user={user} onHandleSetUser={handleSetUser} handleShowMessages={handleShowMessages} />} />
-        <Route path="/Account" element={<Account user={user} onHandleSetUser={handleSetUser} handleShowMessages={handleShowMessages} />} />
+        <Route path="/" element={<Home onHandleAvatar={handleSetAvatar} avatar={avatar} user={user} onHandleSetUser={handleSetUser} handleShowMessages={handleShowMessages} />} />
+        <Route path="/About" element={<About onHandleAvatar={handleSetAvatar} avatar={avatar} user={user} onHandleSetUser={handleSetUser} handleShowMessages={handleShowMessages} />} />
+        <Route path="/Login" element={<Login onHandleAvatar={handleSetAvatar} user={user} onHandleSetUser={handleSetUser} handleShowMessages={handleShowMessages} />} />
+        <Route path="/ContactUs" element={<ContactUs onHandleAvatar={handleSetAvatar} avatar={avatar} user={user} onHandleSetUser={handleSetUser} handleShowMessages={handleShowMessages} />} />
+        <Route path="/FindRoomates" element={<FindRoommates onHandleAvatar={handleSetAvatar} avatar={avatar} user={user} onHandleSetUser={handleSetUser} handleShowMessages={handleShowMessages} />} />
+        <Route path="/Account" element={<Account onHandleAvatar={handleSetAvatar} avatar={avatar} user={user} onHandleSetUser={handleSetUser} handleShowMessages={handleShowMessages} />} />
         <Route path="/CreateAccount" element={<CreateAccount />} />
-        <Route path="/ConnectedRoommates" element={<ConnectedRoommates user={user} onHandleSetUser={handleSetUser} handleShowMessages={handleShowMessages} />} />
+        <Route path="/ConnectedRoommates" element={<ConnectedRoommates onHandleAvatar={handleSetAvatar} avatar={avatar} user={user} onHandleSetUser={handleSetUser} handleShowMessages={handleShowMessages} />} />
       </Routes>
       {isMessagesVisible && <Messages />}
     </>

@@ -5,8 +5,8 @@ import Footer from "../Components/Footer";
 import Avatar from "../Components/Avatar";
 import axios from "axios";
 
-const Account = ({user, onHandleSetUser, handleShowMessages}) => {
-  const [avatar, setAvatar] = useState("");
+const Account = ({user, onHandleSetUser, handleShowMessages, onHandleAvatar, avatar}) => {
+  const [avatarTest, setAvatar] = useState(avatar);
   const [username, setUsername] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -33,7 +33,7 @@ const Account = ({user, onHandleSetUser, handleShowMessages}) => {
     }
 
     GetAvatarUrl();
-  }, [avatar]);
+  }, []);
 
   useEffect(() => {
     if (user == null) {
@@ -56,8 +56,10 @@ const Account = ({user, onHandleSetUser, handleShowMessages}) => {
         setLastName(user.lastname);
         setState(user.state);
         setCity(user.city);
+        setEditCity(user.city);
+        setEditState(user.state);
         setInterests(user.interests);
-
+        setAvatar(window.localStorage.getItem("AvatarUrl"));
         console.log(user);
       } catch (error) {
         alert("failed to fetch user");
@@ -91,8 +93,8 @@ const Account = ({user, onHandleSetUser, handleShowMessages}) => {
     const apiUrl = `https://localhost:7230/api/User/${id}`;
 
     const postData = {
-      state: state,
-      city: city,
+      state: editState,
+      city: editCity,
       interests: interests,
       avatar: avatarUpload,
     };
@@ -106,25 +108,28 @@ const Account = ({user, onHandleSetUser, handleShowMessages}) => {
         },
       })
       .then((response) => {
-        alert(response);
+        localStorage.setItem("AvatarUrl", response.data.userimageurl);
+        setAvatar(window.localStorage.getItem("AvatarUrl"));
+        onHandleAvatar(response.data.userimageurl);
         console.log(response);
       })
       .catch((error) => {
         console.error(error.data);
         alert(error.data);
       });
+    setIsEditing(false);
   }
 
   return (
     <>
-      <NavBar user={user} onHandleSetUser={onHandleSetUser} handleShowMessages={handleShowMessages} />
+      <NavBar user={user} onHandleSetUser={onHandleSetUser} handleShowMessages={handleShowMessages} onHandleAvatar={onHandleAvatar} avatar={avatar} />
       {isEditing ? (
         <div className="account-page-container">
           <form onSubmit={onSubmitAccountInformation}>
             <h1 className="center mt-5 account-page-header">Account Details</h1>
             <div className="account mt-5">
               <div className="account-avatar">
-                <Avatar className={"account-avatar-Image"} />
+                <Avatar className={"account-avatar-Image"} onHandleAvatar={onHandleAvatar} avatarUrl={avatar} />
                 <h4>{username}</h4>
                 <div className="upload-avatar">
                   <label for="avatar">Upload Image: </label>
@@ -224,7 +229,7 @@ const Account = ({user, onHandleSetUser, handleShowMessages}) => {
           <h1 className="center mt-5 account-page-header">Account Details</h1>
           <div className="account mt-5">
             <div className="account-avatar">
-              <Avatar className={"account-avatar-Image"} />
+              <Avatar className={"account-avatar-Image"} onHandleAvatar={onHandleAvatar} avatarUrl={avatar} />
               <h4>{username}</h4>
               <div className={isEditing ? "upload-avatar" : "hidden"}>
                 <label for="avatar-image">Upload Image: </label>
