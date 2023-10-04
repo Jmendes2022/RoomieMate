@@ -3,7 +3,7 @@ import NavBar from "../Components/NavBar";
 import Button from "../Components/Button";
 import Footer from "../Components/Footer";
 
-const ContactUs = ({user, onHandleSetUser, handleShowMessages}) => {
+const ContactUs = ({user, onHandleSetUser, handleShowMessages, onHandleAvatar, avatar}) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -29,7 +29,7 @@ const ContactUs = ({user, onHandleSetUser, handleShowMessages}) => {
   return (
     <>
       <div className="container">
-        <NavBar user={user} onHandleSetUser={onHandleSetUser} handleShowMessages={handleShowMessages} />
+        <NavBar user={user} onHandleSetUser={onHandleSetUser} handleShowMessages={handleShowMessages} onHandleAvatar={onHandleAvatar} avatar={avatar} />
         <div className="contact-container">
           <div className="contact-header">
             <h1>Please feel free to contact us with the form below</h1>

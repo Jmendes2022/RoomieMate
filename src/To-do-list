@@ -6,12 +6,8 @@ Handle Forgot Password & Forgot User information on login page
 
 allow to filter the findRoommates by state
 
-make a connected roommates page? (displays all the ai roommates that you previously connected with in the past) -When clicking on a roommmate, it shows you all the information regarding that conncted roommate
-
 Delete auto log in button and function
 
 Next task:
 
-create account page (displaying the user account information and editing allowed) (adding images to upload??)
-
--Ensure that update Account works (Image works but City, State, and interests dont change)
+make a connected roommates page? (displays all the ai roommates that you previously connected with in the past) -When clicking on a roommmate, it shows you all the information regarding that conncted roommate

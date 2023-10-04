@@ -89,7 +89,7 @@ const FindRoommates = ({user, onHandleSetUser, handleShowMessages, onHandleAvata
   }
 
   function postUsers() {
-    if (likedUsers.length + dislikedUsers.length > 5) {
+    if (likedUsers.length + dislikedUsers.length >= 3) {
       const id = localStorage.getItem("Id");
 
       if (id === null) {

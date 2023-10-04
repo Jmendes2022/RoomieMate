@@ -1130,3 +1130,40 @@ body {
   justify-content: center;
   gap: 2rem;
 }
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+/* ConnectedRoommates Styles */
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.connections-grid {
+  display: grid;
+  padding-left: 10rem;
+  padding-right: 10rem;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1rem;
+}
+
+.connected-roommate-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--cardBackground);
+  border: 2px solid var(--textColor);
+  border-radius: 0.75rem;
+  padding: 1rem;
+}
+
+.connected-roommate-card a {
+  text-decoration: none;
+}
+
+.connected-roommate-card h3 {
+  margin-top: 0.5rem;
+}
+
+.connected-roommate-card a:hover h3 {
+  color: var(--btnBorder);
+}
