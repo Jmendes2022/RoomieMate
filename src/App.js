@@ -10,6 +10,7 @@ import Messages from "./Components/Messages";
 import "./App.css";
 import CreateAccount from "./Pages/CreateAccount";
 import ConnectedRoommates from "./Pages/ConnectedRoommates";
+import DisplayRoommate from "./Pages/DisplayRoommate";
 
 export default function App() {
   const [user, setUser] = useState("");
@@ -50,6 +51,7 @@ export default function App() {
         <Route path="/Account" element={<Account onHandleAvatar={handleSetAvatar} avatar={avatar} user={user} onHandleSetUser={handleSetUser} handleShowMessages={handleShowMessages} />} />
         <Route path="/CreateAccount" element={<CreateAccount />} />
         <Route path="/ConnectedRoommates" element={<ConnectedRoommates onHandleAvatar={handleSetAvatar} avatar={avatar} user={user} onHandleSetUser={handleSetUser} handleShowMessages={handleShowMessages} />} />
+        <Route path="/DisplayRoommate/:id" element={<DisplayRoommate onHandleAvatar={handleSetAvatar} avatar={avatar} user={user} onHandleSetUser={handleSetUser} handleShowMessages={handleShowMessages} />} />
       </Routes>
       {isMessagesVisible && <Messages />}
     </>
