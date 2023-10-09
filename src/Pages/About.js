@@ -1,13 +1,8 @@
 import NavBar from "../Components/NavBar";
 import Footer from "../Components/Footer";
 import Card from "../Components/Card";
-import {useEffect} from "react";
 
 export default function About({user, onHandleSetUser, handleShowMessages, onHandleAvatar, avatar}) {
-  useEffect(() => {
-    document.title = "About | Roomie Mate";
-  }, []);
-
   return (
     <>
       <div className="container">

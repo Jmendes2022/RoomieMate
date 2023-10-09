@@ -22,7 +22,8 @@ const FindRoommates = ({user, onHandleSetUser, handleShowMessages, onHandleAvata
       const id = localStorage.getItem("Id");
 
       try {
-        const response = await axios.get(`https://localhost:7230/InitData/${id}`);
+        // const response = await axios.get(`https://localhost:7230/InitData/${id}`);
+        const response = await axios.get(`https://roomiemateapi.azurewebsites.net/InitData/${id}`);
         const usersList = await response.data;
         setUsers([usersList][0]);
         console.log(users);
@@ -48,10 +49,12 @@ const FindRoommates = ({user, onHandleSetUser, handleShowMessages, onHandleAvata
   }, [users]);
 
   async function GetMoreUsers() {
-    const postResponse = await axios.post("https://localhost:7230/InitData/100");
+    // const postResponse = await axios.post("https://localhost:7230/InitData/100");
+    const postResponse = await axios.post(`https://roomiemateapi.azurewebsites.net/api/InitData/100`);
     console.log(postResponse + " post response");
 
-    const getResponse = await axios.get("https://localhost:7230/InitData");
+    // const getResponse = await axios.get("https://localhost:7230/InitData");
+    const getResponse = await axios.get(`https://roomiemateapi.azurewebsites.net/api/InitData`);
     const usersList = await getResponse.data;
     setUsers([usersList][0]);
   }
@@ -96,7 +99,8 @@ const FindRoommates = ({user, onHandleSetUser, handleShowMessages, onHandleAvata
         return;
       }
 
-      const apiUrl = "https://localhost:7230/api/User/SaveUsers";
+      // const apiUrl = "https://localhost:7230/api/User/SaveUsers";
+      const apiUrl = `https://roomiemateapi.azurewebsites.net/api/User/SaveUsers`;
 
       const putData = {
         id: id,

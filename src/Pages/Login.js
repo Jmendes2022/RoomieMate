@@ -18,7 +18,8 @@ const Login = ({user, onHandleSetUser, onHandleAvatar}) => {
   function onSubmit(e) {
     e.preventDefault();
 
-    const apiUrl = "https://localhost:7230/api/User/login";
+    // const apiUrl = "https://localhost:7230/api/User/login";
+    const apiUrl = "https://roomiemateapi.azurewebsites.net/api/User/login";
 
     const postData = {
       username: username,

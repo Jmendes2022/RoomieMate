@@ -48,7 +48,9 @@ const Account = ({user, onHandleSetUser, handleShowMessages, onHandleAvatar, ava
       const id = localStorage.getItem("Id");
 
       try {
-        const response = await axios.get(`https://localhost:7230/api/User/${id}`);
+        // const response = await axios.get(`https://localhost:7230/api/User/${id}`);
+        const response = await axios.get(`https://roomiemateapi.azurewebsites.net/api/User/${id}`);
+
         const user = await response.data;
 
         setUsername(user.username);
@@ -90,8 +92,8 @@ const Account = ({user, onHandleSetUser, handleShowMessages, onHandleAvatar, ava
   async function onSubmitAccountInformation(e) {
     e.preventDefault();
     const id = localStorage.getItem("Id");
-    const apiUrl = `https://localhost:7230/api/User/${id}`;
-
+    // const apiUrl = `https://localhost:7230/api/User/${id}`;
+    const apiUrl = `https://roomiemateapi.azurewebsites.net/api/User/${id}`;
     const postData = {
       state: editState,
       city: editCity,

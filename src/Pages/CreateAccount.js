@@ -36,7 +36,8 @@ export default function CreateAccount() {
     setEmailExists(false);
     setUserExists(false);
 
-    const apiUrl = "https://localhost:7230/api/User";
+    // const apiUrl = "https://localhost:7230/api/User";
+    const apiUrl = `https://roomiemateapi.azurewebsites.net/api/User/`;
 
     const postData = {
       id: " ",

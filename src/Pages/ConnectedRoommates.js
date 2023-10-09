@@ -16,7 +16,8 @@ export default function ConnectedRoommates({user, onHandleSetUser, handleShowMes
       const id = localStorage.getItem("Id");
 
       try {
-        const response = await axios.get(`https://localhost:7230/api/User/Connections/${id}`);
+        // const response = await axios.get(`https://localhost:7230/api/User/Connections/${id}`);
+        const response = await axios.get(`https://roomiemateapi.azurewebsites.net/api/User/Connections/${id}`);
         const likedUsers = await response.data;
 
         setLikedUsers(likedUsers);
