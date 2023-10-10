@@ -19,7 +19,12 @@ const Login = ({user, onHandleSetUser, onHandleAvatar}) => {
     e.preventDefault();
 
     // const apiUrl = "https://localhost:7230/api/User/login";
-    const apiUrl = "https://roomiemateapi.azurewebsites.net/api/User/login";
+    // const apiUrl = "https://roomiemateapi.azurewebsites.net/api/User/login";
+
+    const isLocal = localStorage.getItem("Local");
+    let url = isLocal === "true" ? `https://localhost:7230/api/User/login` : `https://roomiemateapi.azurewebsites.net/api/User/login`;
+
+    const apiUrl = url;
 
     const postData = {
       username: username,

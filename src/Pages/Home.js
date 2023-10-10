@@ -7,7 +7,7 @@ import Hero from "../Components/Hero";
 import pizzaImageLQ from "../Images/Low_Quality_Images/full-shot-women-eating-delicious-pizza LQ.jpg";
 import coffeeDrinkersLQ from "../Images/Low_Quality_Images/medium-shot-women-holding-cups LQ.jpg";
 import friendsOnCouchLQ from "../Images/Low_Quality_Images/side-view-roommates-with-devices-indoors LQ.jpg";
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import Testimonial from "../Components/Testimonial";
 
 export default function Home({user, onHandleSetUser, handleShowMessages, onHandleAvatar, avatar}) {

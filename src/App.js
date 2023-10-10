@@ -28,6 +28,9 @@ export default function App() {
   }
 
   useEffect(() => {
+    //This is just for testing purposes so that I do not have to keep replacing my Fetch Calls
+    localStorage.setItem("Local", true);
+
     setUser(localStorage.getItem("Username"));
     setAvatar(localStorage.getItem("AvatarUrl"));
   }, []);

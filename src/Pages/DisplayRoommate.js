@@ -11,8 +11,13 @@ const DisplayRoommate = ({user, onHandleSetUser, handleShowMessages, onHandleAva
   useEffect(() => {
     const GetRoommate = async () => {
       try {
+        const isLocal = localStorage.getItem("Local");
+        let url = isLocal === "true" ? `https://localhost:7230/InitData/Roommate/${id}` : `https://roomiemateapi.azurewebsites.net/InitData/Roommate/${id}`;
+
         // const response = await axios.get(`https://localhost:7230/InitData/Roommate/${id}`);
-        const response = await axios.get(`https://roomiemateapi.azurewebsites.net/InitData/Roommate/${id}`);
+        // const response = await axios.get(`https://roomiemateapi.azurewebsites.net/InitData/Roommate/${id}`);
+
+        const response = await axios.get(url);
         const user = await response.data;
         setRoommate(user);
         console.log("Roommate Found");

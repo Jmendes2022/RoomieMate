@@ -23,7 +23,12 @@ const FindRoommates = ({user, onHandleSetUser, handleShowMessages, onHandleAvata
 
       try {
         // const response = await axios.get(`https://localhost:7230/InitData/${id}`);
-        const response = await axios.get(`https://roomiemateapi.azurewebsites.net/InitData/${id}`);
+        // const response = await axios.get(`https://roomiemateapi.azurewebsites.net/InitData/${id}`);
+
+        const isLocal = localStorage.getItem("Local");
+        let url = isLocal === "true" ? `https://localhost:7230/InitData/${id}` : `https://roomiemateapi.azurewebsites.net/InitData/${id}`;
+
+        const response = await axios.get(url);
         const usersList = await response.data;
         setUsers([usersList][0]);
         console.log(users);
@@ -47,17 +52,6 @@ const FindRoommates = ({user, onHandleSetUser, handleShowMessages, onHandleAvata
     SetRoommate();
     console.log(currentRoommate);
   }, [users]);
-
-  async function GetMoreUsers() {
-    // const postResponse = await axios.post("https://localhost:7230/InitData/100");
-    const postResponse = await axios.post(`https://roomiemateapi.azurewebsites.net/api/InitData/100`);
-    console.log(postResponse + " post response");
-
-    // const getResponse = await axios.get("https://localhost:7230/InitData");
-    const getResponse = await axios.get(`https://roomiemateapi.azurewebsites.net/api/InitData`);
-    const usersList = await getResponse.data;
-    setUsers([usersList][0]);
-  }
 
   function GetNewUser(id) {
     if (id === null) {
@@ -100,7 +94,11 @@ const FindRoommates = ({user, onHandleSetUser, handleShowMessages, onHandleAvata
       }
 
       // const apiUrl = "https://localhost:7230/api/User/SaveUsers";
-      const apiUrl = `https://roomiemateapi.azurewebsites.net/api/User/SaveUsers`;
+      // const apiUrl = `https://roomiemateapi.azurewebsites.net/api/User/SaveUsers`;
+      const isLocal = localStorage.getItem("Local");
+      let url = isLocal === "true" ? `https://localhost:7230/api/User/SaveUsers` : `https://roomiemateapi.azurewebsites.net/api/User/SaveUsers`;
+
+      const apiUrl = url;
 
       const putData = {
         id: id,

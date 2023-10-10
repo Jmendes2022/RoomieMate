@@ -4,7 +4,6 @@ import Footer from "../Components/Footer";
 import Card from "../Components/Card";
 import axios from "axios";
 import {Link} from "react-router-dom";
-import {PiChatsDuotone} from "react-icons/pi";
 
 export default function ConnectedRoommates({user, onHandleSetUser, handleShowMessages, onHandleAvatar, avatar}) {
   const [likedUsers, setLikedUsers] = useState([]);
@@ -17,7 +16,11 @@ export default function ConnectedRoommates({user, onHandleSetUser, handleShowMes
 
       try {
         // const response = await axios.get(`https://localhost:7230/api/User/Connections/${id}`);
-        const response = await axios.get(`https://roomiemateapi.azurewebsites.net/api/User/Connections/${id}`);
+        // const response = await axios.get(`https://roomiemateapi.azurewebsites.net/api/User/Connections/${id}`);
+        const isLocal = localStorage.getItem("Local");
+        let url = isLocal === "true" ? `https://localhost:7230/api/User/Connections/${id}` : `https://roomiemateapi.azurewebsites.net/api/User/Connections/${id}`;
+
+        const response = await axios.get(url);
         const likedUsers = await response.data;
 
         setLikedUsers(likedUsers);

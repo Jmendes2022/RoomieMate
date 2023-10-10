@@ -49,7 +49,11 @@ const Account = ({user, onHandleSetUser, handleShowMessages, onHandleAvatar, ava
 
       try {
         // const response = await axios.get(`https://localhost:7230/api/User/${id}`);
-        const response = await axios.get(`https://roomiemateapi.azurewebsites.net/api/User/${id}`);
+        // const response = await axios.get(`https://roomiemateapi.azurewebsites.net/api/User/${id}`);
+        const isLocal = localStorage.getItem("Local");
+        let url = isLocal === "true" ? `https://localhost:7230/api/User/${id}` : `https://roomiemateapi.azurewebsites.net/api/User/${id}`;
+
+        const response = await axios.get(url);
 
         const user = await response.data;
 
@@ -92,8 +96,15 @@ const Account = ({user, onHandleSetUser, handleShowMessages, onHandleAvatar, ava
   async function onSubmitAccountInformation(e) {
     e.preventDefault();
     const id = localStorage.getItem("Id");
+
+    const isLocal = localStorage.getItem("Local");
+    let url = isLocal === "true" ? `https://localhost:7230/api/User/${id}` : `https://roomiemateapi.azurewebsites.net/api/User/${id}`;
+
     // const apiUrl = `https://localhost:7230/api/User/${id}`;
-    const apiUrl = `https://roomiemateapi.azurewebsites.net/api/User/${id}`;
+    // const apiUrl = `https://roomiemateapi.azurewebsites.net/api/User/${id}`;
+
+    const apiUrl = url;
+
     const postData = {
       state: editState,
       city: editCity,

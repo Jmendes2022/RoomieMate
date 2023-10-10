@@ -1,6 +1,5 @@
 import {useState} from "react";
 import axios from "axios";
-import Button from "../Components/Button";
 import Navbar from "../Components/NavBar";
 import Footer from "../Components/Footer";
 
@@ -36,8 +35,12 @@ export default function CreateAccount() {
     setEmailExists(false);
     setUserExists(false);
 
+    const isLocal = localStorage.getItem("Local");
+    let url = isLocal === "true" ? `https://localhost:7230/api/User` : `https://roomiemateapi.azurewebsites.net/api/User`;
+
     // const apiUrl = "https://localhost:7230/api/User";
-    const apiUrl = `https://roomiemateapi.azurewebsites.net/api/User/`;
+    // const apiUrl = `https://roomiemateapi.azurewebsites.net/api/User/`;
+    const apiUrl = url;
 
     const postData = {
       id: " ",
