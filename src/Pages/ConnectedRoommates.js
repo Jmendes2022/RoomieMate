@@ -5,8 +5,9 @@ import Card from "../Components/Card";
 import axios from "axios";
 import {Link} from "react-router-dom";
 
-export default function ConnectedRoommates({user, onHandleSetUser, handleShowMessages, onHandleAvatar, avatar}) {
+export default function ConnectedRoommates({user, onHandleSetUser, handleShowMessages, onHandleAvatar, avatar, handleSetIntroduced}) {
   const [likedUsers, setLikedUsers] = useState([]);
+  const [introducedUsers, setIntroducedUsers] = useState([]);
 
   useEffect(() => {
     window.document.title = "Connections | RoomieMate";
@@ -23,8 +24,10 @@ export default function ConnectedRoommates({user, onHandleSetUser, handleShowMes
         const response = await axios.get(url);
         const likedUsers = await response.data;
 
-        setLikedUsers(likedUsers);
-        console.log(`${likedUsers.length} Connections Fetched`);
+        setLikedUsers(likedUsers.allConnections);
+        setIntroducedUsers(likedUsers.introducedUsers);
+        console.log(`${likedUsers.allConnections.length} Connections Fetched`);
+        console.log(likedUsers.allConnections);
       } catch (error) {
         alert("failed to fetch connections");
         console.log("failed to fetch connections");
@@ -49,11 +52,21 @@ export default function ConnectedRoommates({user, onHandleSetUser, handleShowMes
                   <img src={u.userimageurl} className="roommate-avatar" />
                   <h3 className="center">{u.username}</h3>
                 </Link>
+                {introducedUsers.includes(u.id) && (
+                  <p className="introduced text-center">
+                    <em>Message Sent!</em>✅
+                  </p>
+                )}
               </Card>
             ))
           ) : (
             <h3>You currently do not have any connections</h3>
           )}
+        </div>
+        <div className="center">
+          <Link to="/">
+            <button className="btn">Home</button>
+          </Link>
         </div>
       </div>
       <Footer />

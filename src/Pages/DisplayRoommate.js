@@ -1,5 +1,6 @@
 import {React, useEffect, useState} from "react";
 import {useParams} from "react-router";
+import {Link} from "react-router-dom";
 import NavBar from "../Components/NavBar";
 import Avatar from "../Components/Avatar";
 import axios from "axios";
@@ -7,6 +8,9 @@ import axios from "axios";
 const DisplayRoommate = ({user, onHandleSetUser, handleShowMessages, onHandleAvatar, avatar}) => {
   const {id} = useParams();
   const [roommate, setRoommate] = useState(null);
+  const [introduce, setIsIntroduce] = useState(null);
+  const [textAreaValue, setTextAreaValue] = useState();
+  const [messageSent, setMessageSent] = useState(false);
 
   useEffect(() => {
     const GetRoommate = async () => {
@@ -29,6 +33,32 @@ const DisplayRoommate = ({user, onHandleSetUser, handleShowMessages, onHandleAva
     };
     GetRoommate();
   }, []);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    const isLocal = localStorage.getItem("Local");
+    const id = localStorage.getItem("Id");
+    let url = isLocal === "true" ? `https://localhost:7230/api/User/Introduce` : `https://roomiemateapi.azurewebsites.net/User/Introduce`;
+
+    const apiUrl = url;
+
+    const postData = {
+      id: id,
+      aiUserId: roommate.id,
+    };
+
+    axios
+      .put(apiUrl, postData)
+      .then((response) => {
+        console.log(response);
+        setIsIntroduce(false);
+        setMessageSent(true);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
   return (
     <>
@@ -53,6 +83,45 @@ const DisplayRoommate = ({user, onHandleSetUser, handleShowMessages, onHandleAva
                 </div>
               ))}
             </div>
+          </div>
+          {introduce && (
+            <>
+              <div>
+                <form className="introduce-form center mt-5" onSubmit={handleSubmit}>
+                  <h1>Send a hello message to {roommate.username}!</h1>
+                  <div className="first-name contact-field"></div>
+                  <div className="mt-2 message">
+                    <h2>Message</h2>
+                    <textarea className="mt-2 pl-1 pr-1" value={textAreaValue} placeholder={`Hey ${roommate.username}! I recently connected with you and thought that we would make a great match! Let's Chat!`} onChange={(e) => setTextAreaValue(e.target.value)} />
+                    <div>
+                      <button className="btn" type="submit">
+                        Send
+                      </button>
+                      <button className="btn ml-1" type="button" onClick={() => setIsIntroduce(!introduce)}>
+                        Cancel
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </>
+          )}
+          {messageSent && (
+            <div className="text-center mt-2">
+              <h3>
+                <em>Message Sent!</em>
+              </h3>
+            </div>
+          )}
+          <div className="center ">
+            {messageSent || (
+              <button className="mr-1 btn" onClick={() => setIsIntroduce(true)}>
+                Say Hi!
+              </button>
+            )}
+            <Link to="/ConnectedRoommates">
+              <button className="ml-1 btn">Return</button>
+            </Link>
           </div>
         </div>
       )}

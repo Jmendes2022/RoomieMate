@@ -31,6 +31,30 @@ body {
   margin-top: 10rem;
 }
 
+.mb-1 {
+  margin-bottom: 1rem;
+}
+
+.mb-5 {
+  margin-bottom: 5rem;
+}
+
+.ml-1 {
+  margin-left: 1rem;
+}
+
+.mr-1 {
+  margin-right: 1rem;
+}
+
+.pl-1 {
+  padding-left: 1rem;
+}
+
+.pr-1 {
+  padding-right: 1rem;
+}
+
 .center {
   text-align: center;
 }
@@ -960,7 +984,6 @@ body {
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 .account-page-container {
-  height: 100vh;
   border-top: 2px solid var(--textColor);
   border-bottom: 2px solid var(--textColor);
   background: radial-gradient(#eeaeca, #94bbe9);
@@ -1153,6 +1176,7 @@ body {
   justify-items: center;
   align-items: center;
   width: 50%;
+  height: 100vh;
   grid-template-columns: repeat(3, 1fr);
 }
 
@@ -1177,4 +1201,24 @@ body {
 
 .connected-roommate-card a:hover h3 {
   color: var(--btnBorder);
+}
+
+.introduced {
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+/* DisplayRoommate Styles */
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.introduce-form {
+  display: flex;
+  flex-direction: column;
+  background-color: #21252988;
+  border-radius: 0.75rem;
+  box-shadow: 15px 15px 10px 2px var(--textColor);
+  border: 3px solid black;
+  width: fit-content;
+  padding: 1.5rem;
 }

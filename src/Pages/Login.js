@@ -2,12 +2,15 @@ import React, {useEffect, useState} from "react";
 import NavBar from "../Components/NavBar";
 import Button from "../Components/Button";
 import axios from "axios";
-import {Route, Routes, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 const Login = ({user, onHandleSetUser, onHandleAvatar}) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [forgotLogin, setForgotLogin] = useState(false);
+  const [email, setEmail] = useState("");
+  const [recovery, setSentRecovery] = useState(false);
 
   const navigate = useNavigate();
 
@@ -52,44 +55,77 @@ const Login = ({user, onHandleSetUser, onHandleAvatar}) => {
     setPassword("");
   }
 
-  function AutoFillInfo() {
-    setUsername("Jmendes20223");
-    setPassword("password");
+  function handleSubmitRecovery() {
+    setEmail("");
+    setSentRecovery(true);
   }
 
   return (
     <div className="login-container">
       <NavBar user={user} onHandleSetUser={onHandleSetUser} onHandleAvatar={onHandleAvatar} />
       <div className="image-background">
-        <form className="login-form center" onSubmit={onSubmit}>
-          <div className="email">
-            <label>Username</label>
-            <div>
-              <input type="text" required value={username} onChange={(e) => setUsername(e.target.value)}></input>
+        {forgotLogin || (
+          <form className="login-form center" onSubmit={onSubmit}>
+            <div className="email">
+              <label>Username</label>
+              <div>
+                <input type="text" value={username} onChange={(e) => setUsername(e.target.value)}></input>
+              </div>
             </div>
-          </div>
-          <div className="password">
-            <label>Password</label>
-            <div>
-              <input type="password" required value={password} onChange={(e) => setPassword(e.target.value)}></input>
+            <div className="password">
+              <label>Password</label>
+              <div>
+                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}></input>
+              </div>
             </div>
-          </div>
-          {error && <p className="warning ">{error}</p>}
-          <button type="submit" className="btn">
-            Sign In
-          </button>
-          <button className="btn" type="button" onClick={AutoFillInfo}>
-            Auto Fill (Testing)
-          </button>
-          <div className="forgot-pass">
-            <Button>
-              <p>Forgot Password?</p>
-            </Button>
-            <Button>
-              <p>Forgot User?</p>
-            </Button>
-          </div>
-        </form>
+            {error && <p className="warning ">{error}</p>}
+            <button type="submit" className="btn">
+              Sign In
+            </button>
+            <div className="forgot-pass">
+              <Button onClick={() => setForgotLogin(true)}>
+                <p>Forgot Password?</p>
+              </Button>
+              <Button onClick={() => setForgotLogin(true)}>
+                <p>Forgot User?</p>
+              </Button>
+            </div>
+          </form>
+        )}
+        {forgotLogin && (
+          <form className="login-form center" onSubmit={onSubmit}>
+            {recovery || (
+              <div className="email">
+                <label>Enter your email address</label>
+                <div>
+                  <input type="text" value={email} onChange={(e) => setEmail(e.target.value)}></input>
+                </div>
+              </div>
+            )}
+            {recovery && (
+              <div>
+                <h3>
+                  Recovery Request Sent - <em>Check your email!</em>
+                </h3>
+              </div>
+            )}
+            {!recovery ? (
+              <Button className={"btn"} onClick={handleSubmitRecovery}>
+                Send Recovery
+              </Button>
+            ) : (
+              <Button
+                className={"btn"}
+                onClick={() => {
+                  setSentRecovery(false);
+                  setForgotLogin(false);
+                }}
+              >
+                Return
+              </Button>
+            )}
+          </form>
+        )}
       </div>
     </div>
   );

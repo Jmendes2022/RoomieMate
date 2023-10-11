@@ -16,6 +16,7 @@ export default function App() {
   const [user, setUser] = useState("");
   const [isMessagesVisible, setIsMessagesVisible] = useState(false);
   const [avatar, setAvatar] = useState(null);
+  const [isIntroduced, setIsIntroduced] = useState(false);
   const navigate = useNavigate();
 
   function handleSetUser(user) {
