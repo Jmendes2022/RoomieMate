@@ -45,7 +45,7 @@ export default function ConnectedRoommates({user, onHandleSetUser, handleShowMes
           <h1>Your Connections</h1>
         </div>
         <div className="connections-grid mt-5">
-          {likedUsers ? (
+          {likedUsers.length > 0 ? (
             likedUsers.map((u) => (
               <Card key={u.id} className={"connected-roommate-card"}>
                 <Link to={`/DisplayRoommate/${u.id}`}>
@@ -60,7 +60,7 @@ export default function ConnectedRoommates({user, onHandleSetUser, handleShowMes
               </Card>
             ))
           ) : (
-            <h3>You currently do not have any connections</h3>
+            <h1>Sorry, you have no connections...Keep matching to make some!!</h1>
           )}
         </div>
         <div className="center">
