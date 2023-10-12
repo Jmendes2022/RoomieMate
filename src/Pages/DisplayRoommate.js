@@ -3,6 +3,7 @@ import {useParams} from "react-router";
 import {Link} from "react-router-dom";
 import NavBar from "../Components/NavBar";
 import Avatar from "../Components/Avatar";
+import Footer from "../Components/Footer";
 import axios from "axios";
 
 const DisplayRoommate = ({user, onHandleSetUser, handleShowMessages, onHandleAvatar, avatar}) => {
@@ -34,21 +35,21 @@ const DisplayRoommate = ({user, onHandleSetUser, handleShowMessages, onHandleAva
     GetRoommate();
   }, []);
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
 
     const isLocal = localStorage.getItem("Local");
     const id = localStorage.getItem("Id");
-    let url = isLocal === "true" ? `https://localhost:7230/api/User/Introduce` : `https://roomiemateapi.azurewebsites.net/User/Introduce`;
+    let url = isLocal === "true" ? `https://localhost:7230/api/User/Introduce` : `https://roomiemateapi.azurewebsites.net/api/User/Introduce`;
 
     const apiUrl = url;
 
     const postData = {
-      id: id,
-      aiUserId: roommate.id,
+      Id: id,
+      AiUserId: roommate.id,
     };
 
-    axios
+    await axios
       .put(apiUrl, postData)
       .then((response) => {
         console.log(response);
@@ -87,7 +88,7 @@ const DisplayRoommate = ({user, onHandleSetUser, handleShowMessages, onHandleAva
           {introduce && (
             <>
               <div>
-                <form className="introduce-form center mt-5" onSubmit={handleSubmit}>
+                <form className="introduce-form center mt-5 mb-5" onSubmit={handleSubmit}>
                   <h1>Send a hello message to {roommate.username}!</h1>
                   <div className="first-name contact-field"></div>
                   <div className="mt-2 message">
@@ -114,14 +115,18 @@ const DisplayRoommate = ({user, onHandleSetUser, handleShowMessages, onHandleAva
             </div>
           )}
           <div className="center ">
-            {messageSent || (
-              <button className="mr-1 btn" onClick={() => setIsIntroduce(true)}>
-                Say Hi!
-              </button>
+            {introduce || (
+              <>
+                {messageSent || (
+                  <button className="mr-1 btn" onClick={() => setIsIntroduce(true)}>
+                    Say Hi!
+                  </button>
+                )}
+                <Link to="/ConnectedRoommates">
+                  <button className="ml-1 btn">Return</button>
+                </Link>
+              </>
             )}
-            <Link to="/ConnectedRoommates">
-              <button className="ml-1 btn">Return</button>
-            </Link>
           </div>
         </div>
       )}
@@ -130,6 +135,7 @@ const DisplayRoommate = ({user, onHandleSetUser, handleShowMessages, onHandleAva
           <h3 className="mt-10">Fetching User....</h3>
         </div>
       )}
+      <Footer />
     </>
   );
 };

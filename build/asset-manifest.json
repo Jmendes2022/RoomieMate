@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.bb5d7f4e.css",
-    "main.js": "/static/js/main.947fb7dd.js",
+    "main.js": "/static/js/main.1ba19165.js",
     "static/media/wepik-export-20230806224041x2AU.png": "/static/media/wepik-export-20230806224041x2AU.6be5dba27d6d8807fd68.png",
     "static/media/live-such-moments-as-these LQ.jpg": "/static/media/live-such-moments-as-these LQ.935eb19f5d388f4db1f7.jpg",
     "static/media/side-view-roommates-with-devices-indoors LQ.jpg": "/static/media/side-view-roommates-with-devices-indoors LQ.00d066fd9c968a3c0517.jpg",
@@ -11,10 +11,10 @@
     "static/media/AvatarPlaceholder.png": "/static/media/AvatarPlaceholder.05d0404ad8a0ab5bdefa.png",
     "index.html": "/index.html",
     "main.bb5d7f4e.css.map": "/static/css/main.bb5d7f4e.css.map",
-    "main.947fb7dd.js.map": "/static/js/main.947fb7dd.js.map"
+    "main.1ba19165.js.map": "/static/js/main.1ba19165.js.map"
   },
   "entrypoints": [
     "static/css/main.bb5d7f4e.css",
-    "static/js/main.947fb7dd.js"
+    "static/js/main.1ba19165.js"
   ]
 }

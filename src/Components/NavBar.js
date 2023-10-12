@@ -1,12 +1,11 @@
 import {Link, useNavigate} from "react-router-dom";
 import Button from "../Components/Button";
 import Logo from "../Components/Logo";
-import {PiChatsDuotone} from "react-icons/pi";
 import Avatar from "./Avatar";
 
 import "../App.css";
 
-export default function NavBar({user, onHandleSetUser, handleShowMessages, onHandleAvatar, avatar}) {
+export default function NavBar({user, onHandleSetUser, avatar}) {
   const navigate = useNavigate();
 
   function HandleSetUser() {
@@ -41,9 +40,6 @@ export default function NavBar({user, onHandleSetUser, handleShowMessages, onHan
               <Button className="Navbtn">Connections</Button>
             </Link>
           )}
-          <span className="messages-icon" onClick={handleShowMessages}>
-            {user && <PiChatsDuotone size={30} />}
-          </span>
         </div>
         <div className="welcome-display">
           {user ? (

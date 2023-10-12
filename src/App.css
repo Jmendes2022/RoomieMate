@@ -1202,10 +1202,6 @@ body {
 .connected-roommate-card a:hover h3 {
   color: var(--btnBorder);
 }
-
-.introduced {
-}
-
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 /* DisplayRoommate Styles */
@@ -1222,3 +1218,57 @@ body {
   width: fit-content;
   padding: 1.5rem;
 }
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+/* Mobile Styles Styles */
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+
+
+
+
+
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+/* Med-Large Desktop Styles */
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+/* @media only screen and (max-width: 1200px) {
+  .main-image {
+    background-size: cover;
+    background-image: url("http://localhost:3001/static/media/wepik-export-20230806224041x2AU.6be5dba27d6d8807fd68.png");
+    border-top: solid 2px var(--textColor);
+    border-bottom: solid 2px var(--textColor);
+  }
+
+  .main-text {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: large;
+    background-color: rgba(255, 255, 255, 0.692);
+    border: 2px solid var(--textColor);
+    border-radius: 0.75rem;
+    width: 40rem;
+    padding: 1rem;
+    height: 92%;
+    margin-top: 0rem;
+  }
+
+  .btn {
+    margin-top: 1rem;
+  }
+
+  .header {
+    margin-top: 1rem;
+  }
+
+  .aside-2 h4 {
+    margin-right: 1rem;
+    font-size: 3rem;
+  }
+} */
