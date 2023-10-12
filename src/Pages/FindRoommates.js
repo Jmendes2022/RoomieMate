@@ -85,7 +85,7 @@ const FindRoommates = ({user, onHandleSetUser, handleShowMessages, onHandleAvata
     }, "2000");
   }
 
-  function postUsers() {
+  async function postUsers() {
     if (likedUsers.length + dislikedUsers.length >= 3) {
       const id = localStorage.getItem("Id");
 
@@ -106,7 +106,7 @@ const FindRoommates = ({user, onHandleSetUser, handleShowMessages, onHandleAvata
         dislikedUsers: dislikedUsers,
       };
 
-      axios
+      await axios
         .put(apiUrl, putData)
         .then((response) => {
           console.log(response);
